@@ -1,15 +1,41 @@
 {{#each items as |item|}}
-  <section data-id="{{item._id}}">
-    <h6>Name</h6>
-    <h6>Quantity</h6>
-    <h6>Price</h6>
-    <form data-id="{{item._id}}" class="change-item">
+  <section data-id="{{item.id}}">
+
+
+    <h6>Name:</h6>
+    <p class="entries">
+      {{#if item.name}}
+        {{item.name}}
+      {{else}}
+        No name entered.
+      {{/if}}
+    </p>
+
+      <h6>Quantity:</h6>
+      <p class="entries">
+        {{#if item.quantity}}
+          {{item.quantity}}
+        {{else}}
+          No quantity entered.
+        {{/if}}
+      </p>
+
+      <h6>Price:</h6>
+      <p class="entries">
+        {{#if item.price}}
+          ${{item.price}}
+        {{else}}
+          No price entered.
+        {{/if}}
+      </p>
+
+    <form data-id="{{item.id}}" class="change-item">
       <input type="text" name="item[name]" placeholder="New Name" />
       <input type="text" name="item[quantity]" placeholder="New Quantity" />
       <input type="text" name="item[price]" placeholder="New Price" />
       <input type="submit" value="Update Item" />
     </form>
-    <button data-id="{{item._id}}" class="btn btn-danger remove-item">Delete Item</button>
+    <button data-id="{{item.id}}" class="btn btn-danger remove-item">Delete Item</button>
   </section>
 
 {{/each}}
