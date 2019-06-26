@@ -33,14 +33,15 @@ const onSignInSuccess = responseData => {
   $('form').trigger('reset')
   $('#signOut').show()
   $('#changePW').show()
-  $('#newNote').show()
-  $('#displayAllNotes').show()
+  $('#Item').show()
+  $('#displayAllItems').show()
   $('#signUp').hide()
   $('#signIn').hide()
-  $('#newNote').show()
-  $('#displayAllNotes').show()
+  $('#newItem').show()
+  $('#displayAllItems').show()
 
   store.user = responseData.user
+  console.log(store.user.token)
 }
 
 const onSignInFailure = responseData => {
@@ -62,12 +63,12 @@ const onSignOutSuccess = () => {
   $('form').trigger('reset')
   $('#signOut').hide()
   $('#changePW').hide()
-  $('#newNote').hide()
-  $('#displayAllNotes').hide()
+  $('#newItem').hide()
+  $('#displayAllItems').hide()
   $('#signUp').show()
   $('#signIn').show()
-  $('#newNote').hide()
-  $('#displayAllNotes').hide()
+  $('#newItem').hide()
+  $('#displayAllItems').hide()
   $('.content').text('')
 }
 

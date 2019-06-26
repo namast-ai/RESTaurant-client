@@ -24,7 +24,7 @@ const signOut = () => {
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Bearer ' + store.user.token
     }
   })
 }
@@ -35,7 +35,7 @@ const changePassword = formData => {
     method: 'PATCH',
     data: formData,
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Bearer ' + store.user.token
     }
   })
 }

@@ -1,8 +1,8 @@
 # VARIABLE=VALUE sh curl-scripts/auth/sign-out.sh
 
-curl "http://localhost:4741/sign-out" \
+curl "https://morning-hollows-81329.herokuapp.com/sign-out" \
   --include \
-  --header "Authorization: Token token=${TOKEN}" \
+  --header "Authorization: Bearer ${TOKEN}" \
   --request DELETE \
 
 echo
