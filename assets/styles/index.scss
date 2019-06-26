@@ -1,1 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+
+#signOut,
+#changePW,
+#newNote,
+#displayAllNotes {
+  display: none;
+}
