@@ -65,6 +65,7 @@ const onDisplayAllItemsSuccess = (data) => {
     timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   }
 }
+// AHHHHHHHH
 
 const onDisplayAllItemsFailure = data => {
   $('#message').text('Error: Could Not Retrieve Items')
