@@ -54,10 +54,10 @@ const onUpdateItemFailure = data => {
   $('form').trigger('reset')
 }
 const onDisplayAllItemsSuccess = (data) => {
-  console.log(data)
+  console.log(data.items[0])
   console.log(data.items.length)
   const showItemsHtml = showItemsTemplate({ items: data.items })
-  $('#content').html(showItemsHtml)
+  $('.content').html(showItemsHtml)
   if (data.items.length === 0) {
     console.log('hi')
     $('#message').text('No Items to Display. Press New Item to Create a Item!')
@@ -65,6 +65,7 @@ const onDisplayAllItemsSuccess = (data) => {
     timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   }
 }
+// AHHHHHHHH
 
 const onDisplayAllItemsFailure = data => {
   $('#message').text('Error: Could Not Retrieve Items')
