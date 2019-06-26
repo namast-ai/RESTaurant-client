@@ -12,9 +12,9 @@ const onNewItem = event => {
 
   api.newItem(formData)
     .then(ui.onNewItemSuccess)
-    /* .then(function () {
+    .then(function () {
       onDisplayAllItems(event)
-    }) */
+    })
     .catch(ui.onNewItemFailure)
 }
 
