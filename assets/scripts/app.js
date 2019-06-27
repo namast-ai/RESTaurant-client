@@ -8,8 +8,10 @@
 
 const authEvents = require('./auth/events')
 const itemEvents = require('./items/events')
+const store = require('./store.js')
 
 $(() => {
+  store.signUpPassed = false
   // user
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
