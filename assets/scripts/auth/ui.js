@@ -1,25 +1,32 @@
 'use strict'
 
-const store = require('../store')
+// const store = require('../store')
 const timeoutModule = require('../timeout/timeout-queue.js')
+const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  $('#message').show()
-  $('#message').text('Successfully created an account!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  console.log(responseData)
+  store.signUpPassed = true
+  // $('#message').show()
+  // $('#message').text('Successfully created an account!')
+  // $('#message').removeClass()
+  // $('#message').addClass('success')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
+  return responseData
 }
 
 const onSignUpFailure = responseData => {
-  $('#message').show()
-  $('#message').text('Error: could not create account')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  console.log(responseData)
+  $('#signUpFailure').removeClass('invisible')
+  setTimeout(() => $('#signUpFailure').addClass('invisible'), 3000)
+  // $('#message').show()
+  // $('#message').text('Error: could not create account')
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
 }
 
@@ -42,17 +49,19 @@ const onSignInSuccess = responseData => {
   // $('#newItem').show()
   // $('#displayAllItems').show()
 
-  store.user = responseData.user
-  console.log(store.user.token)
+  // store.user = responseData.user
+  // console.log(store.user.token)
 }
 
 const onSignInFailure = responseData => {
-  $('#message').show()
-  $('#message').text('Error: failed to sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  $('#signInFailure').removeClass('invisible')
+  setTimeout(() => $('#signInFailure').addClass('invisible'), 3000)
+  // $('#message').show()
+  // $('#message').text('Error: failed to sign in')
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
 }
 
