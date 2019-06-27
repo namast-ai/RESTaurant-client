@@ -29,13 +29,13 @@
         {{/if}}
       </p>
 
-    <form data-id="{{item.id}}" class="change-item">
+    <form data-id="{{item._id}}" class="change-item">
       <input type="text" name="item[name]" placeholder="New Name" />
       <input type="text" name="item[quantity]" placeholder="New Quantity" />
       <input type="text" name="item[price]" placeholder="New Price" />
       <input type="submit" value="Update Item" />
     </form>
-    <button data-id="{{item.id}}" class="btn btn-danger remove-item">Delete Item</button>
+    <button data-id="{{item._id}}" class="btn btn-danger remove-item">Delete Item</button>
   </section>
 
 {{/each}}

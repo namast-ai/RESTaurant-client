@@ -33,7 +33,6 @@ const onUpdateItem = event => {
   event.preventDefault()
   const id = $(event.target).data('id')
   const formData = getFormFields(event.target)
-
   api.updateItem(id, formData)
     .then(function () {
       onDisplayAllItems(event)
