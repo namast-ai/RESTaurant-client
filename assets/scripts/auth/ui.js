@@ -38,8 +38,9 @@ const onSignInSuccess = responseData => {
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
-  $('#landingSignedOut').addClass('d-none')
-  $('#landingSignedIn').removeClass('d-none')
+  console.log(responseData)
+  // $('#landingSignedOut').addClass('d-none')
+  // $('#landingSignedIn').removeClass('d-none')
   // $('#signOut').show()
   // $('#changePW').show()
   // $('#Item').show()
@@ -49,7 +50,7 @@ const onSignInSuccess = responseData => {
   // $('#newItem').show()
   // $('#displayAllItems').show()
 
-  // store.user = responseData.user
+  store.user = responseData.user
   // console.log(store.user.token)
 }
 

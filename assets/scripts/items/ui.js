@@ -64,7 +64,7 @@ const onDisplayAllItemsSuccess = (data) => {
   console.log(data.items[0])
   console.log(data.items.length)
   const showItemsHtml = showItemsTemplate({ items: data.items })
-  $('.content').html(showItemsHtml)
+  $('tbody').html(showItemsHtml)
   if (data.items.length === 0) {
     console.log('hi')
     $('#message').text('No items to display. Press new item to create an item!')

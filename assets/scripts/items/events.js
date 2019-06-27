@@ -7,8 +7,10 @@ const store = require('../store')
 
 const onNewItem = event => {
   event.preventDefault()
+  console.log(event.target)
   const form = event.target
   const formData = getFormFields(form)
+  console.log(formData)
 
   api.newItem(formData)
     .then(ui.onNewItemSuccess)
@@ -18,8 +20,21 @@ const onNewItem = event => {
     .catch(ui.onNewItemFailure)
 }
 
+const onDevNewItem = event => {
+  event.preventDefault()
+  console.log('hi')
+
+  api.devNewItem()
+    .then(ui.onNewItemSuccess)
+    .then(function () {
+      onDisplayAllItems(event)
+    })
+    .catch(ui.onNewItemFailure)
+}
+
 const onDeleteItem = event => {
   event.preventDefault()
+  console.log(event.target)
   const id = $(event.target).data('id')
   api.deleteItem(id)
     .then(ui.onDeleteItemSuccess)
@@ -66,6 +81,7 @@ const onDisplayAllItems = event => {
 
 module.exports = {
   onNewItem,
+  onDevNewItem,
   onDeleteItem,
   onShowUpdate,
   onUpdateItem,

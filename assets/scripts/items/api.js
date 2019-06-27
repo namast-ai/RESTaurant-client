@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const newItem = formData => {
+  console.log(formData)
   return $.ajax({
     url: config.apiUrl + '/items',
     method: 'POST',
@@ -14,14 +15,31 @@ const newItem = formData => {
   })
 }
 
-const deleteItem = (formData) => {
+const devNewItem = formData => {
   return $.ajax({
-    url: config.apiUrl + `/items/${formData}`,
-    method: 'DELETE',
+    url: config.apiUrl + '/items',
+    method: 'POST',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: formData
+    data: {
+      item: {
+        'name': 'test',
+        'quantity': 1,
+        'price': 1
+      }
+    }
+  })
+}
+
+const deleteItem = (id) => {
+  console.log(config.apiUrl + `/items/${id}`)
+  return $.ajax({
+    url: config.apiUrl + `/items/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 
@@ -32,7 +50,13 @@ const updateItem = (id, formData) => {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: formData
+    data: {
+      item: {
+        'name': 'testtt',
+        'quantity': 11,
+        'price': 12
+      }
+    }
   })
 }
 
@@ -48,6 +72,7 @@ const displayAllItems = () => {
 
 module.exports = {
   newItem,
+  devNewItem,
   deleteItem,
   updateItem,
   displayAllItems

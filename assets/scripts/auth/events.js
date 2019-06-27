@@ -27,15 +27,16 @@ const onSignUp = event => {
 
 const onSignIn = event => {
   event.preventDefault()
+  console.log('hi')
+  // const form = event.target
+  // const formData = getFormFields(form)
 
-  const form = event.target
-  const formData = getFormFields(form)
-
-  api.signIn(formData)
-    .then(responseData => {
-      store.user = responseData.user
-      ui.onSignInSuccess()
-    })
+  api.signIn()
+    // .then(responseData => {
+    //   store.user = responseData.user
+    //   ui.onSignInSuccess()
+    // })
+    .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
 }
 

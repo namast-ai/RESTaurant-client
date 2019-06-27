@@ -18,8 +18,58 @@
 </head>
 
 <body>
+  <div class="modal fade" id="create-new-trailer" tabindex="-1" role="dialog" aria-labelledby="create-update-trailer-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="create-update-trailer-label">Trailer</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="create-new-form-container">
+            <form class="px-4 py-3" id="create-item-form">
+              <div class="form-group">
+                <label for="createItemName">Name</label>
+                <input name="item[name]" type="text" class="form-control" id="createItemName" aria-describedby="emailHelp" placeholder="Product Name">
+              </div>
+              <div class="form-group">
+                <label for="createItemQuantity">Quantity</label>
+                <input name="item[quantity]" type="number" class="form-control" id="createItemQuantity" aria-describedby="emailHelp" placeholder="Quantity In Stock">
+              </div>
+              <div class="form-group">
+                <label for="createItemPrice">Price</label>
+                <input name="item[price]" type="number" class="form-control" id="createItemPrice" aria-describedby="emailHelp" placeholder="Price Per Unit">
+              </div>
+              <hr class="my-2">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">New Item</button>
+            </form>
+            <form class="px-4 py-3 d-none" id="update-item-form">
+              <div class="form-group">
+                <label for="updateItemName">Name</label>
+                <input name="item[name]" type="text" class="form-control" id="updateItemName" aria-describedby="emailHelp" placeholder="Product Name">
+              </div>
+              <div class="form-group">
+                <label for="updateItemQuantity">Quantity</label>
+                <input name="item[quantity]" type="number" class="form-control" id="updateItemQuantity" aria-describedby="emailHelp" placeholder="Quantity In Stock">
+              </div>
+              <div class="form-group">
+                <label for="updateItemPrice">Price</label>
+                <input name="item[price]" type="number" class="form-control" id="updateItemPrice" aria-describedby="emailHelp" placeholder="Price Per Unit">
+              </div>
+              <hr class="my-2">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Update Item</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <main>
-    <section id="landingSignedOut">
+    <section class="d-none" id="landingSignedOut">
       <div class="container login-container">
         <div class="row">
           <div class="col-md-6 login-form-1">
@@ -66,7 +116,7 @@
     <body>
       <main>
         <section id="landingSignedOut"></section>
-        <section id="landingSignedIn" class="d-none">
+        <section id="landingSignedIn" class="">
   <a class="menu-toggle rounded" href="#">
    <i class="fas fa-bars"></i>
  </a>
@@ -97,338 +147,35 @@
  </nav>
  <nav class="navbar navbar-light bg-light">
    <a class="navbar-brand" href="#">Company Name</a>
-   <a class="" href="#">
+   <a id="dev-signIn" class="" href="#">Dev Sign In
    </a>
+   <a id="index" class="" href="#">Get All
+   </a>
+   <a id="new" class="" href="#">New Item
+   </a>
+   <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+   Link with href
+ </a>
  </nav>
-          <table class="table">
-  <thead>
+ <nav class="navbar navbar-light bg-light d-flex justify-content-end sticky-top">
+   <form class="form-inline my-2 my-lg-0">
+         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+       </form>
+ </nav>
+<table class="table table-striped">
+  <thead class="position-sticky">
     <tr>
       <th scope="col">Product ID</th>
       <th scope="col">Name</th>
       <th scope="col">Quanity</th>
       <th scope="col">Price</th>
-      <th scope="col" class="d-flex justify-content-center align-items-center">Reorder Status</th>
+      <th scope="col">Reorder Status</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
-
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Apple</td>
-      <td>10</td>
-      <td>$0.5</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-warning"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Pear</td>
-      <td>15</td>
-      <td>$0.6</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-danger"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Banana</td>
-      <td>2</td>
-      <td>$0.8</td>
-      <td class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-circle text-success"></i>
-      </td>
-      <td>
-        <i class="fas fa-pencil-alt"></i>
-      </td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-      </td>
-    </tr>
 
   </tbody>
 </table>
@@ -437,70 +184,13 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
-<nav class="navbar navbar-light bg-light fixed-bottom">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-light bg-light fixed-bottom d-flex justify-content-center">
   <a class="" href="#">
-    <i class="fas fa-plus fa-2x"></i>
+    <i id="createItem" class="fas fa-plus fa-2x text-dark" data-toggle="modal" data-target="#create-new-trailer"></i>
   </a>
 </nav>
         </section>
-        <section class="d-none"></section>
-        <!-- <h1>RESTaurant</h1>
->>>>>>> Add icons for column fields
-
-      <div id="signUp">
-    <h2>Sign Up</h2>
-    <form id="sign-up">
-      <input type="email" name="credentials[email]" placeholder="Email" />
-      <input type="password" name="credentials[password]" placeholder="Password" />
-      <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" />
-      <input type="submit" value="Sign Up" />
-    </form>
-    </div>
-
-    <div id="signIn">
-    <h2>Sign In</h2>
-    <form id="sign-in">
-      <input type="email" name="credentials[email]" placeholder="Email" />
-      <input type="password" name="credentials[password]" placeholder="Password" />
-      <input type="submit" value="Sign In" />
-    </form>
-    </div>
-
-    <div id="signOut">
-    <h2>Sign Out</h2>
-    <form id="sign-out">
-      <input type="submit" value="Sign Out" />
-    </form>
-    </div>
-
-    <div id="changePW">
-    <h2>Change Password</h2>
-    <form id="change-pw">
-      <input type="password" name="passwords[old]" placeholder="Old Password">
-      <input type="password" name="passwords[new]" placeholder="New Password">
-      <input type="submit" value="Change Password" />
-    </form>
-    </div>
-
-    <div id="newItem">
-      <form id="new-item">
-        <input type="text" name="item[name]" placeholder="Name" />
-        <input type="text" name="item[quantity]" placeholder="Quantity" />
-        <input type="text" name="item[price]" placeholder="Price per Unit" />
-        <input type="submit" value="New Item" />
-      </form>
-    </div>
-
-    <div id="displayAllItems">
-      <form class="display-all-items">
-        <input type="submit" value="Get Items" />
-      </form>
-    </div>
-
-    <h3 id="message"></h3>
-
-    <div class="content"></div>  -->
+<!--<h3 id="message"></h3> -->
   </main>
 </body>
 
