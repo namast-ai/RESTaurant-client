@@ -1,63 +1,452 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-      <link rel="stylesheet" href="sign-in.css">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="sign-in.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <main>
+    <section id="landingSignedOut">
+      <div class="container login-container">
+        <div class="row">
+          <div class="col-md-6 login-form-1">
+            <h3>Sign In</h3>
+            <form id="sign-in">
+              <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Sign In" />
+              </div>
+            </form>
+            <h3 id="signInFailure" class="invisible">Sign In Failed</h3>
+          </div>
+          <div class="col-md-6 login-form-2">
+            <h3>Sign Up</h3>
+            <form id="sign-up">
+              <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Sign Up" />
+              </div>
+            </form>
+            <!-- Do we need to differentiate actual sign up failure from AutoSignIn failure?-->
+            <h3 id="signUpFailure" class="invisible">Sign Up Failed</h3>
+          </div>
+        </div>
+      </div>
+    </section>
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
       <main>
-        <section id="landingSignedOut">
-          <div class="container login-container">
-              <div class="row">
-                  <div class="col-md-6 login-form-1">
-                      <h3>Sign In</h3>
-                      <form id="sign-in">
-                          <div class="form-group">
-                              <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="submit" class="btnSubmit" value="Sign In" />
-                          </div>
-                      </form>
-                      <h3 id="signInFailure" class="invisible">Sign In Failed</h3>
-                  </div>
-                  <div class="col-md-6 login-form-2">
-                      <h3>Sign Up</h3>
-                      <form id="sign-up">
-                          <div class="form-group">
-                              <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="submit" class="btnSubmit" value="Sign Up" />
-                          </div>
-                      </form>
-                      <!-- Do we need to differentiate actual sign up failure from AutoSignIn failure?-->
-                      <h3 id="signUpFailure" class="invisible">Sign Up Failed</h3>
-                  </div>
-              </div>
-          </div>
-        </section>
+        <section id="landingSignedOut"></section>
         <section id="landingSignedIn" class="d-none">
+  <a class="menu-toggle rounded" href="#">
+   <i class="fas fa-bars"></i>
+ </a>
+ <nav id="sidebar-wrapper">
+   <ul class="sidebar-nav">
+     <li class="sidebar-brand">
+       <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+     </li>
+     <li class="sidebar-nav-item">
+       <a class="js-scroll-trigger" href="#page-top">Home</a>
+     </li>
+     <li class="sidebar-nav-item">
+       <a class="js-scroll-trigger" href="#about">About</a>
+     </li>
+     <li class="sidebar-nav-item">
+       <a class="js-scroll-trigger" href="#services">Services</a>
+     </li>
+     <li class="sidebar-nav-item">
+       <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+     </li>
+     <li class="sidebar-nav-item">
+       <a class="js-scroll-trigger" href="#contact">Contact</a>
+     </li>
+     <li class="sidebar-nav-item">
+       <a class="js-scroll-trigger" href="#search"><i class="fas fa-search mr-2"></i>Search</a>
+     </li>
+   </ul>
+ </nav>
+ <nav class="navbar navbar-light bg-light">
+   <a class="navbar-brand" href="#">Company Name</a>
+   <a class="" href="#">
+   </a>
+ </nav>
+          <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Product ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Quanity</th>
+      <th scope="col">Price</th>
+      <th scope="col" class="d-flex justify-content-center align-items-center">Reorder Status</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Apple</td>
+      <td>10</td>
+      <td>$0.5</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-warning"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Pear</td>
+      <td>15</td>
+      <td>$0.6</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-danger"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Banana</td>
+      <td>2</td>
+      <td>$0.8</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-circle text-success"></i>
+      </td>
+      <td>
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+      <td>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<nav class="navbar navbar-light bg-light fixed-bottom">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="" href="#">
+    <i class="fas fa-plus fa-2x"></i>
+  </a>
+</nav>
         </section>
         <section class="d-none"></section>
         <!-- <h1>RESTaurant</h1>
+>>>>>>> Add icons for column fields
 
       <div id="signUp">
     <h2>Sign Up</h2>
@@ -113,5 +502,6 @@
 
     <div class="content"></div>  -->
   </main>
-  </body>
-    </html>
+</body>
+
+</html>
