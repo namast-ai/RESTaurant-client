@@ -56,7 +56,6 @@ const onUpdateItem = event => {
 const onDisplayAllItems = event => {
   console.log(store.user.token)
   event.preventDefault()
-  $('.content').toggleClass('d-none')
   const form = event.target
   const formData = getFormFields(form)
 
