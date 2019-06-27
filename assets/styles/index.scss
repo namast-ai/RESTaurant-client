@@ -35,13 +35,13 @@
 #sidebar-wrapper {
   position: fixed;
   z-index: 2;
-  right: 0;
+  left: 0;
   width: 250px;
   height: 100%;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s;
-  -webkit-transform: translateX(250px);
-  transform: translateX(250px);
+  -webkit-transform: translateX(-250px);
+  transform: translateX(-250px);
   background: #1D809F;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -74,13 +74,15 @@
 }
 
 .sidebar-nav > .sidebar-brand {
+  display: flex;
+  justify-content: flex-end;
   font-size: 1.2rem;
   background: rgba(52, 58, 64, 0.1);
   height: 80px;
   line-height: 50px;
   padding-top: 15px;
   padding-bottom: 15px;
-  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -93,7 +95,7 @@
 }
 
 #sidebar-wrapper.active {
-  right: 250px;
+  left: 250px;
   width: 250px;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s;
@@ -101,7 +103,7 @@
 
 .menu-toggle {
   position: fixed;
-  right: 15px;
+  left: 15px;
   top: 15px;
   width: 50px;
   height: 50px;
@@ -120,6 +122,14 @@
   background: #343a40;
 }
 
-.fa-pencil-alt:hover, .fa-trash-alt:hover {
+.fa-pencil-alt {
+  color: #FAE299;
+}
+
+.fa-pencil-alt:hover {
   opacity: .5;
+}
+
+.fa-trash-alt:hover {
+  color: #DE1414;
 }
