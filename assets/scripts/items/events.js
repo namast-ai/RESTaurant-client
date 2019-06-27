@@ -29,11 +29,22 @@ const onDeleteItem = event => {
     .catch(ui.onDeleteItemFailure)
 }
 
+const onShowUpdate = event => {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  $(`#item-${id}`).toggleClass('d-none')
+  store.itemName = $(`#item-name-${id}`).text().trim()
+  store.itemQuantity = $(`#item-quantity-${id}`).text().trim()
+  store.itemPrice = $(`#item-price-${id}`).text().trim()
+  ui.populateUpdateForm()
+}
+
 const onUpdateItem = event => {
   event.preventDefault()
   const id = $(event.target).data('id')
   const formData = getFormFields(event.target)
-
+  console.log(id)
+  console.log(formData)
   api.updateItem(id, formData)
     .then(function () {
       onDisplayAllItems(event)
@@ -45,6 +56,7 @@ const onUpdateItem = event => {
 const onDisplayAllItems = event => {
   console.log(store.user.token)
   event.preventDefault()
+  $('.content').toggleClass('d-none')
   const form = event.target
   const formData = getFormFields(form)
 
@@ -56,6 +68,7 @@ const onDisplayAllItems = event => {
 module.exports = {
   onNewItem,
   onDeleteItem,
+  onShowUpdate,
   onUpdateItem,
   onDisplayAllItems
 }

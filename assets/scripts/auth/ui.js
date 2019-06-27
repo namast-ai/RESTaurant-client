@@ -46,7 +46,7 @@ const onSignInSuccess = responseData => {
 
 const onSignInFailure = responseData => {
   $('#message').show()
-  $('#message').text('Error: Failed to Sign In.')
+  $('#message').text('Error: failed to sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
   timeoutModule.overrideTimout()
@@ -55,7 +55,7 @@ const onSignInFailure = responseData => {
 }
 
 const onSignOutSuccess = () => {
-  $('#message').text('Successfully Signed Out')
+  $('#message').text('Successfully signed out')
   $('#message').removeClass()
   $('#message').addClass('success')
   timeoutModule.overrideTimout()
@@ -73,7 +73,7 @@ const onSignOutSuccess = () => {
 }
 
 const onSignOutFailure = () => {
-  $('#message').text('Error: Failed to Sign Out. Lol.')
+  $('#message').text('Error: failed to sign out')
   $('#message').removeClass()
   $('#message').addClass('failure')
   timeoutModule.overrideTimout()
@@ -82,7 +82,7 @@ const onSignOutFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
-  $('#message').text('Successfully Changed Password')
+  $('#message').text('Successfully changed password')
   $('#message').removeClass()
   $('#message').addClass('success')
   timeoutModule.overrideTimout()
@@ -91,7 +91,7 @@ const onChangePasswordSuccess = () => {
 }
 
 const onChangePasswordFailure = () => {
-  $('#message').text('Error: Could not Change Password.')
+  $('#message').text('Error: could not change password')
   $('#message').removeClass()
   $('#message').addClass('failure')
   timeoutModule.overrideTimout()

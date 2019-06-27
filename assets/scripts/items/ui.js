@@ -2,9 +2,10 @@
 
 const showItemsTemplate = require('../templates/item-listing.handlebars')
 const timeoutModule = require('../timeout/timeout-queue.js')
+const store = require('../store')
 
 const onNewItemSuccess = data => {
-  $('#message').text('Created New Item!')
+  $('#message').text('Created new item!')
   $('#message').removeClass()
   $('#message').addClass('success')
   timeoutModule.overrideTimout()
@@ -14,7 +15,7 @@ const onNewItemSuccess = data => {
 
 const onNewItemFailure = data => {
   console.log(data)
-  $('#message').text('Error: Could not Create Item.')
+  $('#message').text('Error: could not create item')
   $('#message').removeClass()
   $('#message').addClass('failure')
   timeoutModule.overrideTimout()
@@ -23,7 +24,7 @@ const onNewItemFailure = data => {
 }
 
 const onDeleteItemSuccess = data => {
-  $('#message').text('Deleted Item!')
+  $('#message').text('Deleted item!')
   $('#message').removeClass()
   $('#message').addClass('success')
   timeoutModule.overrideTimout()
@@ -32,7 +33,7 @@ const onDeleteItemSuccess = data => {
 }
 
 const onDeleteItemFailure = data => {
-  $('#message').text('Error: Could not Delete Item.')
+  $('#message').text('Error: could not delete item')
   $('#message').removeClass()
   $('#message').addClass('failure')
   timeoutModule.overrideTimout()
@@ -40,15 +41,21 @@ const onDeleteItemFailure = data => {
   $('form').trigger('reset')
 }
 
+const populateUpdateForm = event => {
+  $('.edit-name').val(store.itemName)
+  $('.edit-quantity').val(store.itemQuantity)
+  $('.edit-price').val(store.itemPrice)
+}
+
 const onUpdateItemSuccess = (playerTurn, cell) => {
-  $('#message').text('Successfully Updated Item!')
+  $('#message').text('Successfully updated item!')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
 }
 
 const onUpdateItemFailure = data => {
-  $('#message').text('Error: Could not Update Item.')
+  $('#message').text('Error: could not update item')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
@@ -60,15 +67,14 @@ const onDisplayAllItemsSuccess = (data) => {
   $('.content').html(showItemsHtml)
   if (data.items.length === 0) {
     console.log('hi')
-    $('#message').text('No Items to Display. Press New Item to Create a Item!')
+    $('#message').text('No items to display. Press new item to create an item!')
     timeoutModule.overrideTimout()
     timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   }
 }
-// AHHHHHHHH
 
 const onDisplayAllItemsFailure = data => {
-  $('#message').text('Error: Could Not Retrieve Items')
+  $('#message').text('Error: could not retrieve items')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
 }
@@ -78,6 +84,7 @@ module.exports = {
   onNewItemSuccess,
   onDeleteItemFailure,
   onDeleteItemSuccess,
+  populateUpdateForm,
   onUpdateItemFailure,
   onUpdateItemSuccess,
   onDisplayAllItemsFailure,

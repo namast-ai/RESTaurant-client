@@ -21,6 +21,7 @@ $(() => {
   $('.content').on('click', '.remove-item', itemEvents.onDeleteItem)
   $('#get-item').on('submit', itemEvents.onGetItem)
   $('#update-item').on('submit', itemEvents.onUpdateItem)
+  $('.content').on('click', '.update-item', itemEvents.onShowUpdate)
   $('.content').on('submit', '.change-item', itemEvents.onUpdateItem)
-  $('#display-all-items').on('submit', itemEvents.onDisplayAllItems)
+  $('.display-all-items').on('submit', itemEvents.onDisplayAllItems)
 })
