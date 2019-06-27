@@ -2,6 +2,7 @@
 
 const showItemsTemplate = require('../templates/item-listing.handlebars')
 const timeoutModule = require('../timeout/timeout-queue.js')
+const store = require('../store')
 
 const onNewItemSuccess = data => {
   $('#message').text('Created new item!')
@@ -38,6 +39,12 @@ const onDeleteItemFailure = data => {
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
+}
+
+const populateUpdateForm = event => {
+  $('.edit-name').val(store.itemName)
+  $('.edit-quantity').val(store.itemQuantity)
+  $('.edit-price').val(store.itemPrice)
 }
 
 const onUpdateItemSuccess = (playerTurn, cell) => {
@@ -77,6 +84,7 @@ module.exports = {
   onNewItemSuccess,
   onDeleteItemFailure,
   onDeleteItemSuccess,
+  populateUpdateForm,
   onUpdateItemFailure,
   onUpdateItemSuccess,
   onDisplayAllItemsFailure,

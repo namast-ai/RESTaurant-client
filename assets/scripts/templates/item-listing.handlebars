@@ -1,9 +1,9 @@
 {{#each items as |item|}}
-  <section data-id="{{item.id}}">
+  <section data-id="{{item._id}}">
 
-
+  <div>
     <h6>Name:</h6>
-    <p class="entries">
+    <p class="entries" id="item-name-{{item._id}}">
       {{#if item.name}}
         {{item.name}}
       {{else}}
@@ -12,7 +12,7 @@
     </p>
 
       <h6>Quantity:</h6>
-      <p class="entries">
+      <p class="entries" id="item-quantity-{{item._id}}">
         {{#if item.quantity}}
           {{item.quantity}}
         {{else}}
@@ -20,22 +20,26 @@
         {{/if}}
       </p>
 
-      <h6>Price:</h6>
-      <p class="entries">
+      <h6>Price (dollars):</h6>
+      <p class="entries" id="item-price-{{item._id}}">
         {{#if item.price}}
-          ${{item.price}}
+          {{item.price}}
         {{else}}
           No price entered.
         {{/if}}
       </p>
 
-    <form data-id="{{item._id}}" class="change-item">
-      <input type="text" name="item[name]" placeholder="New Name" />
-      <input type="text" name="item[quantity]" placeholder="New Quantity" />
-      <input type="text" name="item[price]" placeholder="New Price" />
-      <input type="submit" value="Update Item" />
-    </form>
+    <button data-id="{{item._id}}" class="btn btn-secondary update-item">Update Item</button>
     <button data-id="{{item._id}}" class="btn btn-danger remove-item">Delete Item</button>
+  </div>
+
+    <form data-id="{{item._id}}" class="change-item d-none" id="item-{{item._id}}">
+      <input class="edit-name" type="text" name="item[name]" placeholder="New Name" />
+      <input class="edit-quantity" type="text" name="item[quantity]" placeholder="New Quantity" />
+      <input class="edit-price" type="text" name="item[price]" placeholder="New Price" />
+      <input type="submit" value="Update" />
+    </form>
+
   </section>
 
 {{/each}}
