@@ -6,6 +6,7 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="sign-in.css">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -13,8 +14,56 @@
     </head>
     <body>
       <main>
-        <section id="landingSignedOut"></section>
-        <section id="landingSignedIn" class="d-none"></section>
+        <section id="landingSignedOut">
+          <div class="container login-container">
+              <div class="row">
+                  <div class="col-md-6 login-form-1">
+                      <h3>Sign In</h3>
+                      <form id="sign-in">
+                          <div class="form-group">
+                              <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="submit" class="btnSubmit" value="Sign In" />
+                          </div>
+                          <div class="form-group">
+                              <a href="#" class="ForgetPwd">Forget Password?</a>
+                          </div>
+                      </form>
+                  </div>
+                  <div class="col-md-6 login-form-2">
+                      <h3>Sign Up</h3>
+                      <form id="sign-up">
+                          <div class="form-group">
+                              <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password *" value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="submit" class="btnSubmit" value="Sign Up" />
+                          </div>
+                          <div class="form-group">
+
+                              <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+        </section>
+        <section id="landingSignedIn" class="d-none">
+          <h2>Sign Out</h2>
+          <form id="sign-out">
+            <input type="submit" value="Sign Out" />
+          </form>
+        </section>
         <section class="d-none"></section>
         <!-- <h1>RESTaurant</h1>
 
