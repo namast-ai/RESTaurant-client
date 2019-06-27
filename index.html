@@ -1,63 +1,127 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-      <link rel="stylesheet" href="sign-in.css">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <main>
-        <section id="landingSignedOut">
-          <div class="container login-container">
-              <div class="row">
-                  <div class="col-md-6 login-form-1">
-                      <h3>Sign In</h3>
-                      <form id="sign-in">
-                          <div class="form-group">
-                              <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="submit" class="btnSubmit" value="Sign In" />
-                          </div>
-                      </form>
-                      <h3 id="signInFailure" class="invisible">Sign In Failed</h3>
-                  </div>
-                  <div class="col-md-6 login-form-2">
-                      <h3>Sign Up</h3>
-                      <form id="sign-up">
-                          <div class="form-group">
-                              <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password *" value="" />
-                          </div>
-                          <div class="form-group">
-                              <input type="submit" class="btnSubmit" value="Sign Up" />
-                          </div>
-                      </form>
-                      <!-- Do we need to differentiate actual sign up failure from AutoSignIn failure?-->
-                      <h3 id="signUpFailure" class="invisible">Sign Up Failed</h3>
-                  </div>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="sign-in.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <main>
+    <section id="landingSignedOut">
+      <div class="container login-container">
+        <div class="row">
+          <div class="col-md-6 login-form-1">
+            <h3>Sign In</h3>
+            <form id="sign-in">
+              <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
               </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Sign In" />
+              </div>
+            </form>
+            <h3 id="signInFailure" class="invisible">Sign In Failed</h3>
           </div>
-        </section>
-        <section id="landingSignedIn" class="d-none">
-        </section>
-        <section class="d-none"></section>
-        <!-- <h1>RESTaurant</h1>
+          <div class="col-md-6 login-form-2">
+            <h3>Sign Up</h3>
+            <form id="sign-up">
+              <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Sign Up" />
+              </div>
+            </form>
+            <!-- Do we need to differentiate actual sign up failure from AutoSignIn failure?-->
+            <h3 id="signUpFailure" class="invisible">Sign Up Failed</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="landingSignedIn" class="">
+      <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+      <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#page-top">Home</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </section>
+    <section class="d-none"></section>
+    <!-- <h1>RESTaurant</h1>
 
       <div id="signUp">
     <h2>Sign Up</h2>
@@ -113,5 +177,6 @@
 
     <div class="content"></div>  -->
   </main>
-  </body>
-    </html>
+</body>
+
+</html>
