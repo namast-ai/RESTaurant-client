@@ -67,6 +67,8 @@ const onSignInFailure = responseData => {
 }
 
 const onSignOutSuccess = () => {
+  $('#sidebar-wrapper').removeClass('active')
+  $('.menu-toggle > .fa-bars, .menu-toggle > .fa-times').toggleClass('fa-bars fa-times')
   $('#message').text('Successfully signed out')
   $('#message').removeClass()
   $('#message').addClass('success')
