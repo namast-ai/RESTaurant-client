@@ -26,10 +26,10 @@
             <h3>Sign In</h3>
             <form id="sign-in">
               <div class="form-group">
-                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
+                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email" value="" />
               </div>
               <div class="form-group">
-                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password" value="" />
               </div>
               <div class="form-group">
                 <input type="submit" class="btnSubmit" value="Sign In" />
@@ -41,13 +41,13 @@
             <h3>Sign Up</h3>
             <form id="sign-up">
               <div class="form-group">
-                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email *" value="" />
+                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email" value="" />
               </div>
               <div class="form-group">
-                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password *" value="" />
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password" value="" />
               </div>
               <div class="form-group">
-                <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password *" value="" />
+                <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password" value="" />
               </div>
               <div class="form-group">
                 <input type="submit" class="btnSubmit" value="Sign Up" />
@@ -72,12 +72,11 @@
  </a>
 
 
-       <button type="button" class="btn btn-primary-transparent btn-lg shadow-lg" data-dismiss="modal" data-toggle="modal" data-target="#change-pw"> Change Password </button>
        <div class="modal fade" id="change-pw" tabindex="-1" role="dialog" aria-hidden="true">
          <div class="modal-dialog" role="document">
            <div class="modal-content">
              <div class="modal-header text-center">
-               <h4 class="modal-title w-100 font-weight-bold">Change Password</h4>
+               <h3 class="modal-title w-100 font-weight-bold">Change Password</h3>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                    <span aria-hidden="true">&times;</span>
                   </button>
@@ -87,18 +86,19 @@
                     <div class="form-group">
                       <form id="change-password">
                         <div class="form-group">
-                          <h3>Enter current password:</h3>
-                          <input class="form-control-lg" name="passwords[old]" placeholder="Enter current password" type="password" required />
+                          <h5>Enter current password:</h5>
+                          <input class="form-control-lg" name="passwords[old]" placeholder="Current password" type="password" required />
                         </div>
                         <div class="form-group">
-                          <h3>Enter new password:</h3>
-                          <input class="form-control-lg" name="passwords[new]" placeholder="Enter new password" type="password" required />
+                          <h5>Enter new password:</h5>
+                          <input class="form-control-lg" name="passwords[new]" placeholder="New password" type="password" required />
                             <span id="change-pw-message"></span>
                         </div>
                         <div class="modal-footer d-flex justify-content-center">
-                          <button type="submit" class="btn btn-primary">Change Password</button>
+                          <button type="submit" class="btn btn-primary btn-lg">Change Password</button>
                         </div>
                       </form>
+                      <p class="password-message"></p>
                      </div>
                 </div>
               </div>
@@ -122,11 +122,11 @@
        <a class="js-scroll-trigger" href="#services">Services</a>
      </li>
      <li class="sidebar-nav-item">
-       <a class="js-scroll-trigger change-pw" href="#">Change Password</a>
+       <a data-toggle="modal" href="#change-pw">Change Password</a>
+       <!-- <a class="js-scroll-trigger change-pw" href="#">Change Password</a> -->
      </li>
      <li class="sidebar-nav-item">
-       <a class="js-scroll-trigger sign-out" href="#contact">Sign Out
-       </a>
+       <a class="js-scroll-trigger sign-out" href="#contact">Sign Out</a>
      </li>
      <li class="sidebar-nav-item">
        <a class="js-scroll-trigger" href="#search"><i class="fas fa-search mr-2"></i>Search</a>
