@@ -28,10 +28,10 @@ const onSignUp = event => {
 const onSignIn = event => {
   event.preventDefault()
   console.log('hi')
-  // const form = event.target
-  // const formData = getFormFields(form)
+  const form = event.target
+  const formData = getFormFields(form)
 
-  api.signIn()
+  api.signIn(formData)
     // .then(responseData => {
     //   store.user = responseData.user
     //   ui.onSignInSuccess()

@@ -11,16 +11,11 @@ const signUp = formData => {
   })
 }
 
-const signIn = () => {
+const signIn = (formData) => {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
-    data: {
-      credentials: {
-        email: '21@1',
-        password: '1'
-      }
-    }
+    data: formData
   })
 }
 

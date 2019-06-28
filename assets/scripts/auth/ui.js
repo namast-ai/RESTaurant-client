@@ -31,16 +31,16 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
+  $('form').trigger('reset')
   $('#message').show()
   $('#message').text('Successfully signed in!')
   $('#message').removeClass()
   $('#message').addClass('success')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
-  $('form').trigger('reset')
   console.log(responseData)
-  // $('#landingSignedOut').addClass('d-none')
-  // $('#landingSignedIn').removeClass('d-none')
+  $('#landingSignedOut').addClass('d-none')
+  $('#landingSignedIn').removeClass('d-none')
   // $('#signOut').show()
   // $('#changePW').show()
   // $('#Item').show()

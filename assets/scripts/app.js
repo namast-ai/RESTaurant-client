@@ -14,7 +14,7 @@ $(() => {
   store.signUpPassed = false
   // user
   $('#sign-up').on('submit', authEvents.onSignUp)
-  $('#dev-signIn').on('click', authEvents.onSignIn)
+  $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#change-pw').on('submit', authEvents.onChangePassword)
 
