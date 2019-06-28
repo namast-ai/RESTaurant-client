@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
+const itemEvents = require('../items/events')
 
 const onSignUp = event => {
   event.preventDefault()
@@ -35,6 +36,7 @@ const onSignIn = event => {
     //   ui.onSignInSuccess()
     // })
     .then(ui.onSignInSuccess)
+    .then(itemEvents.onDisplayAllItems)
     .catch(ui.onSignInFailure)
 }
 

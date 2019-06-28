@@ -78,12 +78,12 @@ const toggleUpdateModal = event => {
   $('#update-trailer').modal('toggle')
 }
 
-const onDisplayAllItems = event => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
+const onDisplayAllItems = () => {
+  // event.preventDefault()
+  // const form = event.target
+  // const formData = getFormFields(form)
 
-  api.displayAllItems(formData)
+  api.displayAllItems()
     .then(ui.onDisplayAllItemsSuccess)
     .catch(ui.onDisplayAllItemsFailure)
 }
