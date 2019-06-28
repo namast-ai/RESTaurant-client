@@ -32,6 +32,17 @@ const onDevNewItem = event => {
     .catch(ui.onNewItemFailure)
 }
 
+const onFindItem = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log(formData)
+
+  api.findItem(formData)
+    .then(ui.onFindItemSuccess)
+    .catch(ui.onFindItemFailure)
+}
+
 const onDeleteItem = event => {
   event.preventDefault()
   console.log(event.target)
@@ -82,6 +93,7 @@ const onDisplayAllItems = event => {
 module.exports = {
   onNewItem,
   onDevNewItem,
+  onFindItem,
   onDeleteItem,
   onShowUpdate,
   onUpdateItem,

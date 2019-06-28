@@ -168,11 +168,6 @@
             <li class="sidebar-nav-item">
               <a class="js-scroll-trigger sign-out" href="#contact">Sign Out</a>
             </li>
-            <li class="sidebar-nav-item">
-              <a class="js-scroll-trigger" href="#search">
-                <i class="fas fa-search mr-2"></i>Search
-              </a>
-            </li>
           </ul>
         </nav>
         <nav class="navbar navbar-light bg-light">
@@ -188,9 +183,11 @@
           </a>
         </nav>
         <nav class="navbar navbar-light bg-light d-flex justify-content-end sticky-top">
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <form id="findItem" class="form-inline my-2 my-lg-0">
+            <input name="item[name]" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn my-2 my-sm-0" type="submit">
+              <i class="fas fa-search mr-2 fa-2x"></i>
+              </button>
           </form>
         </nav>
         <table class="table table-striped">
@@ -217,7 +214,7 @@
           </a>
         </nav>
       </section>
-    <!--<h3 id="message"></h3> -->
+    <h3 id="message"></h3>
   </main>
 </body>
 
