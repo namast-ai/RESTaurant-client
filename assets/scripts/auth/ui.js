@@ -96,20 +96,21 @@ const onSignOutFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
-  $('#message').text('Successfully changed password')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('.password-message').text('Successfully changed password').fadeOut(3000)
+  $('.password-message').show()
+  // $('.password-message').addClass('success')
   timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
   $('form').trigger('reset')
 }
 
 const onChangePasswordFailure = () => {
-  $('#message').text('Error: could not change password')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('.password-message').text('Error: could not change password').fadeOut(3000)
+  $('.password-message').show()
+  // $('.password-message').removeClass()
+  // $('.password-message').addClass('failure')
   timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
   $('form').trigger('reset')
 }
 
