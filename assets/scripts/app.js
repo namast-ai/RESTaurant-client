@@ -14,18 +14,21 @@ $(() => {
   store.signUpPassed = false
   // user
   $('#sign-up').on('submit', authEvents.onSignUp)
-  $('#sign-in').on('submit', authEvents.onSignIn)
-  $('.sign-out').on('click', authEvents.onSignOut)
-  $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#dev-signIn').on('click', authEvents.onSignIn)
+  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#change-pw').on('submit', authEvents.onChangePassword)
+
   // item
-  $('#new-item').on('submit', itemEvents.onNewItem)
-  $('#delete-item').on('submit', itemEvents.onDeleteItem)
+  $('#create-item-form').on('submit', itemEvents.onNewItem)
+  $('#new').on('click', itemEvents.onDevNewItem)
+  $('tbody').on('click', 'i.delete', itemEvents.onDeleteItem)
+  $('tbody').on('click', 'i.update', itemEvents.onUpdateItem)
   $('.content').on('click', '.remove-item', itemEvents.onDeleteItem)
   $('#get-item').on('submit', itemEvents.onGetItem)
-  $('#update-item').on('submit', itemEvents.onUpdateItem)
+//  $('#update-item').on('submit', itemEvents.onUpdateItem)
   $('.content').on('click', '.update-item', itemEvents.onShowUpdate)
   $('.content').on('submit', '.change-item', itemEvents.onUpdateItem)
-  $('.display-all-items').on('submit', itemEvents.onDisplayAllItems)
+  $('#index').on('click', itemEvents.onDisplayAllItems)
   // Closes the sidebar menu
   $('.menu-toggle').click(function (e) {
     e.preventDefault()
