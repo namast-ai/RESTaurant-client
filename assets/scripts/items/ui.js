@@ -23,6 +23,22 @@ const onNewItemFailure = data => {
   $('form').trigger('reset')
 }
 
+const onFindItemSuccess = data => {
+  console.log(data.items)
+  const showItemsHtml = showItemsTemplate({ items: data.items })
+  $('tbody').html(showItemsHtml)
+  $('#message').text('Item(s) found!')
+  timeoutModule.overrideTimout()
+  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+}
+
+const onFindItemFailure = data => {
+  $('#message').text('Error: could not find item')
+  $('tbody').html('')
+  timeoutModule.overrideTimout()
+  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+}
+
 const onDeleteItemSuccess = data => {
   $('#message').text('Deleted item!')
   $('#message').removeClass()
@@ -82,6 +98,8 @@ const onDisplayAllItemsFailure = data => {
 module.exports = {
   onNewItemFailure,
   onNewItemSuccess,
+  onFindItemFailure,
+  onFindItemSuccess,
   onDeleteItemFailure,
   onDeleteItemSuccess,
   populateUpdateForm,

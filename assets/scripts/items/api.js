@@ -15,6 +15,18 @@ const newItem = formData => {
   })
 }
 
+const findItem = formData => {
+  console.log(formData.item.name)
+  console.log(config.apiUrl + `/items/search/${formData.item.name}`)
+  return $.ajax({
+    url: config.apiUrl + `/items/search/${formData.item.name}`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 const devNewItem = formData => {
   return $.ajax({
     url: config.apiUrl + '/items',
@@ -73,6 +85,7 @@ const displayAllItems = () => {
 module.exports = {
   newItem,
   devNewItem,
+  findItem,
   deleteItem,
   updateItem,
   displayAllItems
