@@ -14,20 +14,46 @@ const newItem = formData => {
   })
 }
 
-const deleteItem = (formData) => {
+const findItem = formData => {
   return $.ajax({
-    url: config.apiUrl + `/items/${formData}`,
+    url: config.apiUrl + `/items/search/${formData.item.name}`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+// const devNewItem = formData => {
+//   return $.ajax({
+//     url: config.apiUrl + '/items',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     },
+//     data: {
+//       item: {
+//         'name': 'test',
+//         'quantity': 1,
+//         'price': 1
+//       }
+//     }
+//   })
+// }
+
+const deleteItem = (id) => {
+  return $.ajax({
+    url: config.apiUrl + `/items/${id}`,
     method: 'DELETE',
     headers: {
       Authorization: 'Bearer ' + store.user.token
-    },
-    data: formData
+    }
   })
 }
 
 const updateItem = (id, formData) => {
   return $.ajax({
-    url: config.apiUrl + '/items/' + id,
+    url: config.apiUrl + `/items/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -48,6 +74,8 @@ const displayAllItems = () => {
 
 module.exports = {
   newItem,
+  // devNewItem,
+  findItem,
   deleteItem,
   updateItem,
   displayAllItems

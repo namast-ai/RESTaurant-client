@@ -1,79 +1,91 @@
 'use strict'
 
-const store = require('../store')
+// const store = require('../store')
 const timeoutModule = require('../timeout/timeout-queue.js')
+const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  $('#message').show()
-  $('#message').text('Successfully created an account!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  store.signUpPassed = true
+  // $('#message').show()
+  // $('#message').text('Successfully created an account!')
+  // $('#message').removeClass()
+  // $('#message').addClass('success')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
+  return responseData
 }
 
 const onSignUpFailure = responseData => {
-  $('#message').show()
-  $('#message').text('Error: could not create account')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  $('#signUpFailure').removeClass('invisible')
+  setTimeout(() => $('#signUpFailure').addClass('invisible'), 3000)
+  // $('#message').show()
+  // $('#message').text('Error: could not create account')
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
 }
 
 const onSignInSuccess = responseData => {
+  $('form').trigger('reset')
   $('#message').show()
   $('#message').text('Successfully signed in!')
   $('#message').removeClass()
   $('#message').addClass('success')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
-  $('form').trigger('reset')
-  $('#signOut').show()
-  $('#changePW').show()
-  $('#Item').show()
-  $('#displayAllItems').show()
-  $('#signUp').hide()
-  $('#signIn').hide()
-  $('#newItem').show()
-  $('#displayAllItems').show()
+  $('#landingSignedOut').addClass('d-none')
+  $('#landingSignedIn').removeClass('d-none')
+  // $('#signOut').show()
+  // $('#changePW').show()
+  // $('#Item').show()
+  // $('#displayAllItems').show()
+  // $('#signUp').hide()
+  // $('#signIn').hide()
+  // $('#newItem').show()
+  // $('#displayAllItems').show()
 
   store.user = responseData.user
-  console.log(store.user.token)
 }
 
 const onSignInFailure = responseData => {
-  $('#message').show()
-  $('#message').text('Error: Failed to Sign In.')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  $('#signInFailure').removeClass('invisible')
+  setTimeout(() => $('#signInFailure').addClass('invisible'), 3000)
+  // $('#message').show()
+  // $('#message').text('Error: failed to sign in')
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
 }
 
 const onSignOutSuccess = () => {
-  $('#message').text('Successfully Signed Out')
+  $('#sidebar-wrapper').removeClass('active')
+  $('.menu-toggle > .fa-bars, .menu-toggle > .fa-times').toggleClass('fa-bars fa-times')
+  $('#message').text('Successfully signed out')
   $('#message').removeClass()
   $('#message').addClass('success')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
-  $('#signOut').hide()
-  $('#changePW').hide()
-  $('#newItem').hide()
-  $('#displayAllItems').hide()
-  $('#signUp').show()
-  $('#signIn').show()
-  $('#newItem').hide()
-  $('#displayAllItems').hide()
-  $('.content').text('')
+  $('#landingSignedOut').removeClass('d-none')
+  $('#landingSignedIn').addClass('d-none')
+  // $('#signOut').hide()
+  // $('#changePW').hide()
+  // $('#newItem').hide()
+  // $('#displayAllItems').hide()
+  // $('#signUp').show()
+  // $('#signIn').show()
+  // $('#newItem').hide()
+  // $('#displayAllItems').hide()
+  // $('.content').text('')
 }
 
 const onSignOutFailure = () => {
-  $('#message').text('Error: Failed to Sign Out. Lol.')
+  $('#message').text('Error: failed to sign out')
   $('#message').removeClass()
   $('#message').addClass('failure')
   timeoutModule.overrideTimout()
@@ -82,20 +94,21 @@ const onSignOutFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
-  $('#message').text('Successfully Changed Password')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('.password-message').text('Successfully changed password').fadeOut(3000)
+  $('.password-message').show()
+  // $('.password-message').addClass('success')
   timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
   $('form').trigger('reset')
 }
 
 const onChangePasswordFailure = () => {
-  $('#message').text('Error: Could not Change Password.')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('.password-message').text('Error: could not change password').fadeOut(3000)
+  $('.password-message').show()
+  // $('.password-message').removeClass()
+  // $('.password-message').addClass('failure')
   timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
   $('form').trigger('reset')
 }
 

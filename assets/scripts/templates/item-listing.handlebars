@@ -1,15 +1,17 @@
 {{#each items as |item|}}
-  <section data-id="{{item._id}}">
-    <h6>Name</h6>
-    <h6>Quantity</h6>
-    <h6>Price</h6>
-    <form data-id="{{item._id}}" class="change-item">
-      <input type="text" name="item[name]" placeholder="New Name" />
-      <input type="text" name="item[quantity]" placeholder="New Quantity" />
-      <input type="text" name="item[price]" placeholder="New Price" />
-      <input type="submit" value="Update Item" />
-    </form>
-    <button data-id="{{item._id}}" class="btn btn-danger remove-item">Delete Item</button>
-  </section>
-
+  <tr>
+    <th scope="row">{{ item._id }}</th>
+    <td>{{ item.name }}</td>
+    <td>{{ item.quantity }}</td>
+    <td>${{ item.price }}</td>
+    <td>
+      <i class="fas fa-circle text-{{ item.reorderStatus }} pl-4"></i>
+    </td>
+    <td>
+      <i class="fas fa-pencil-alt update" data-id={{ item._id }}></i>
+    </td>
+    <td>
+      <i class="fas fa-trash-alt delete" data-id={{ item._id }}></i>
+    </td>
+  </tr>
 {{/each}}

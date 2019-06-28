@@ -30,5 +30,5 @@ https://imgur.com/rlxie4C
 - As a signed in user, I would like to see the quantity and price of each item.
 
 *Development process:*
-
+.
 *Unsolved problems:*
