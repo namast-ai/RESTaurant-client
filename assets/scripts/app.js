@@ -15,7 +15,7 @@ $(() => {
   // user
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#dev-signIn').on('click', authEvents.onSignIn)
-  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#sign-out').on('click', authEvents.onSignOut)
   $('#change-pw').on('submit', authEvents.onChangePassword)
 
   // item
