@@ -14,7 +14,6 @@ const onNewItemSuccess = data => {
 }
 
 const onNewItemFailure = data => {
-  console.log(data)
   $('#message').text('Error: could not create item')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -24,7 +23,6 @@ const onNewItemFailure = data => {
 }
 
 const onFindItemSuccess = data => {
-  console.log(data.items)
   const showItemsHtml = showItemsTemplate({ items: data.items })
   $('tbody').html(showItemsHtml)
   $('#message').text('Item(s) found!')
@@ -77,12 +75,9 @@ const onUpdateItemFailure = data => {
   $('form').trigger('reset')
 }
 const onDisplayAllItemsSuccess = (data) => {
-  console.log(data.items[0])
-  console.log(data.items.length)
   const showItemsHtml = showItemsTemplate({ items: data.items })
   $('tbody').html(showItemsHtml)
   if (data.items.length === 0) {
-    console.log('hi')
     $('#message').text('No items to display. Press new item to create an item!')
     timeoutModule.overrideTimout()
     timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))

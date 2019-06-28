@@ -5,7 +5,6 @@ const timeoutModule = require('../timeout/timeout-queue.js')
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  console.log(responseData)
   store.signUpPassed = true
   // $('#message').show()
   // $('#message').text('Successfully created an account!')
@@ -18,7 +17,6 @@ const onSignUpSuccess = responseData => {
 }
 
 const onSignUpFailure = responseData => {
-  console.log(responseData)
   $('#signUpFailure').removeClass('invisible')
   setTimeout(() => $('#signUpFailure').addClass('invisible'), 3000)
   // $('#message').show()
@@ -38,7 +36,6 @@ const onSignInSuccess = responseData => {
   $('#message').addClass('success')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
-  console.log(responseData)
   $('#landingSignedOut').addClass('d-none')
   $('#landingSignedIn').removeClass('d-none')
   // $('#signOut').show()
@@ -51,7 +48,6 @@ const onSignInSuccess = responseData => {
   // $('#displayAllItems').show()
 
   store.user = responseData.user
-  // console.log(store.user.token)
 }
 
 const onSignInFailure = responseData => {

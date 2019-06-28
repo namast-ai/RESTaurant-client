@@ -7,10 +7,8 @@ const store = require('../store')
 
 const onNewItem = event => {
   event.preventDefault()
-  console.log(event.target)
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
 
   api.newItem(formData)
     .then(ui.onNewItemSuccess)
@@ -20,23 +18,21 @@ const onNewItem = event => {
     .catch(ui.onNewItemFailure)
 }
 
-const onDevNewItem = event => {
-  event.preventDefault()
-  console.log('hi')
-
-  api.devNewItem()
-    .then(ui.onNewItemSuccess)
-    .then(function () {
-      onDisplayAllItems(event)
-    })
-    .catch(ui.onNewItemFailure)
-}
+// const onDevNewItem = event => {
+//   event.preventDefault()
+//
+//   api.devNewItem()
+//     .then(ui.onNewItemSuccess)
+//     .then(function () {
+//       onDisplayAllItems(event)
+//     })
+//     .catch(ui.onNewItemFailure)
+// }
 
 const onFindItem = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
 
   api.findItem(formData)
     .then(ui.onFindItemSuccess)
@@ -45,7 +41,6 @@ const onFindItem = event => {
 
 const onDeleteItem = event => {
   event.preventDefault()
-  console.log(event.target)
   const id = $(event.target).data('id')
   api.deleteItem(id)
     .then(ui.onDeleteItemSuccess)
@@ -69,8 +64,6 @@ const onUpdateItem = event => {
   event.preventDefault()
   const id = $(event.target).data('id')
   const formData = getFormFields(event.target)
-  console.log(id)
-  console.log(formData)
   api.updateItem(id, formData)
     .then(function () {
       onDisplayAllItems(event)
@@ -79,8 +72,13 @@ const onUpdateItem = event => {
     .catch(ui.onUpdateItemFailure)
 }
 
+const toggleUpdateModal = event => {
+  const id = $(event.target).data('id')
+  $('#update-item-form').data('id', id)
+  $('#update-trailer').modal('toggle')
+}
+
 const onDisplayAllItems = event => {
-  console.log(store.user.token)
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -92,9 +90,10 @@ const onDisplayAllItems = event => {
 
 module.exports = {
   onNewItem,
-  onDevNewItem,
+  //  onDevNewItem,
   onFindItem,
   onDeleteItem,
+  toggleUpdateModal,
   onShowUpdate,
   onUpdateItem,
   onDisplayAllItems

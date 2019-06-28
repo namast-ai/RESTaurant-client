@@ -23,7 +23,7 @@
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="create-update-trailer-label">Trailer</h5>
+            <h5 class="modal-title" id="create-update-trailer-label">Add New Item</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -37,28 +37,44 @@
                 </div>
                 <div class="form-group">
                   <label for="createItemQuantity">Quantity</label>
-                  <input name="item[quantity]" type="number" class="form-control" id="createItemQuantity" aria-describedby="emailHelp" placeholder="Quantity In Stock">
+                  <input name="item[quantity]" type="number" class="form-control" id="createItemQuantity" min="0" step="1" aria-describedby="emailHelp" placeholder="Quantity In Stock">
                 </div>
                 <div class="form-group">
                   <label for="createItemPrice">Price</label>
-                  <input name="item[price]" type="number" class="form-control" id="createItemPrice" aria-describedby="emailHelp" placeholder="Price Per Unit">
+                  <input name="item[price]" type="number" class="form-control" min="0" step=".01" id="createItemPrice" aria-describedby="emailHelp" placeholder="Price Per Unit">
                 </div>
                 <hr class="my-2">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">New Item</button>
               </form>
-              <form class="px-4 py-3 d-none" id="update-item-form">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="update-trailer" tabindex="-1" role="dialog" aria-labelledby="update-trailer-label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="update-trailer-label">Update Item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="create-new-form-container">
+              <form class="px-4 py-3" id="update-item-form">
                 <div class="form-group">
                   <label for="updateItemName">Name</label>
                   <input name="item[name]" type="text" class="form-control" id="updateItemName" aria-describedby="emailHelp" placeholder="Product Name">
                 </div>
                 <div class="form-group">
                   <label for="updateItemQuantity">Quantity</label>
-                  <input name="item[quantity]" type="number" class="form-control" id="updateItemQuantity" aria-describedby="emailHelp" placeholder="Quantity In Stock">
+                  <input name="item[quantity]" type="number" class="form-control" id="updateItemQuantity" min="0" step="1" aria-describedby="emailHelp" placeholder="Quantity In Stock">
                 </div>
                 <div class="form-group">
                   <label for="updateItemPrice">Price</label>
-                  <input name="item[price]" type="number" class="form-control" id="updateItemPrice" aria-describedby="emailHelp" placeholder="Price Per Unit">
+                  <input name="item[price]" type="number" class="form-control" id="updateItemPrice" min="0" step=".01" aria-describedby="emailHelp" placeholder="Price Per Unit">
                 </div>
                 <hr class="my-2">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

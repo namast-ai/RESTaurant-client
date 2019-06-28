@@ -20,15 +20,14 @@ $(() => {
 
   // item
   $('#create-item-form').on('submit', itemEvents.onNewItem)
-  $('#new').on('click', itemEvents.onDevNewItem)
+  // $('#new').on('click', itemEvents.onDevNewItem)
   $('tbody').on('click', 'i.delete', itemEvents.onDeleteItem)
   $('#findItem').on('submit', itemEvents.onFindItem)
-  $('tbody').on('click', 'i.update', itemEvents.onUpdateItem)
+  $('tbody').on('click', 'i.update', itemEvents.toggleUpdateModal)
   $('.content').on('click', '.remove-item', itemEvents.onDeleteItem)
   $('#get-item').on('submit', itemEvents.onGetItem)
-  //  $('#update-item').on('submit', itemEvents.onUpdateItem)
-  $('.content').on('click', '.update-item', itemEvents.onShowUpdate)
-  $('.content').on('submit', '.change-item', itemEvents.onUpdateItem)
+  $('#update-item-form').on('submit', itemEvents.onUpdateItem)
+  // $('.content').on('click', '.update-item', itemEvents.onShowUpdate)
   $('#index').on('click', itemEvents.onDisplayAllItems)
   // Closes the sidebar menu
   $('.menu-toggle').click(function (e) {
