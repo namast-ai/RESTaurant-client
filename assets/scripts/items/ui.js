@@ -28,6 +28,7 @@ const onFindItemSuccess = data => {
   $('#message').text('Item(s) found!')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  $('form').trigger('reset')
 }
 
 const onFindItemFailure = data => {
@@ -35,6 +36,7 @@ const onFindItemFailure = data => {
   $('tbody').html('')
   timeoutModule.overrideTimout()
   timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  $('form').trigger('reset')
 }
 
 const onDeleteItemSuccess = data => {
