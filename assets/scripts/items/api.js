@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const newItem = formData => {
-  console.log(formData)
   return $.ajax({
     url: config.apiUrl + '/items',
     method: 'POST',
@@ -16,8 +15,6 @@ const newItem = formData => {
 }
 
 const findItem = formData => {
-  console.log(formData.item.name)
-  console.log(config.apiUrl + `/items/search/${formData.item.name}`)
   return $.ajax({
     url: config.apiUrl + `/items/search/${formData.item.name}`,
     method: 'GET',
@@ -27,25 +24,24 @@ const findItem = formData => {
   })
 }
 
-const devNewItem = formData => {
-  return $.ajax({
-    url: config.apiUrl + '/items',
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    data: {
-      item: {
-        'name': 'test',
-        'quantity': 1,
-        'price': 1
-      }
-    }
-  })
-}
+// const devNewItem = formData => {
+//   return $.ajax({
+//     url: config.apiUrl + '/items',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     },
+//     data: {
+//       item: {
+//         'name': 'test',
+//         'quantity': 1,
+//         'price': 1
+//       }
+//     }
+//   })
+// }
 
 const deleteItem = (id) => {
-  console.log(config.apiUrl + `/items/${id}`)
   return $.ajax({
     url: config.apiUrl + `/items/${id}`,
     method: 'DELETE',
@@ -57,18 +53,12 @@ const deleteItem = (id) => {
 
 const updateItem = (id, formData) => {
   return $.ajax({
-    url: config.apiUrl + '/items/' + id,
+    url: config.apiUrl + `/items/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: {
-      item: {
-        'name': 'testtt',
-        'quantity': 11,
-        'price': 12
-      }
-    }
+    data: formData
   })
 }
 
@@ -84,7 +74,7 @@ const displayAllItems = () => {
 
 module.exports = {
   newItem,
-  devNewItem,
+  // devNewItem,
   findItem,
   deleteItem,
   updateItem,

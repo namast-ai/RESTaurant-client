@@ -13,7 +13,6 @@ const onSignUp = event => {
 
   api.signUp(formData)
     .then((data) => {
-      console.log(data)
       return data
     })
     .then(ui.onSignUpSuccess)
@@ -27,7 +26,6 @@ const onSignUp = event => {
 
 const onSignIn = event => {
   event.preventDefault()
-  console.log('hi')
   const form = event.target
   const formData = getFormFields(form)
 
@@ -41,7 +39,6 @@ const onSignIn = event => {
 }
 
 const onSignOut = event => {
-  console.log(event.target)
   event.preventDefault()
 
   api.signOut()
@@ -61,7 +58,6 @@ const onChangePassword = event => {
 }
 
 const onAutoSignIn = (email, password) => {
-  console.log(email, password)
   const reqObj = {
     'credentials': {
       'email': email,
