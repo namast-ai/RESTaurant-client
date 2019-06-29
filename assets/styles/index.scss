@@ -1,6 +1,12 @@
 
 @import '~bootstrap/scss/bootstrap';
 
+.deleteMessage {
+  font-size: 18px;
+  justify-content: flex-start;
+}
+
+
 .scroll-to-top {
   position: fixed;
   left: 15px;

@@ -40,21 +40,27 @@ const onFindItemFailure = data => {
 }
 
 const onDeleteItemSuccess = data => {
-  $('#message').text('Deleted item!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
-  $('form').trigger('reset')
+  $('.deleteMessage').text('Deleted item!').fadeOut(2200, function () {
+    $(this).delay(2200).empty().show()
+  })
+  setTimeout(() => $('#deleteConfirm').modal('hide'), 2210)
+  // $('.deleteMessage').removeClass()
+  // $('.deleteMessage').addClass('success')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.deleteMessage').text(''), 2000))
+  // $('form').trigger('reset')
 }
 
 const onDeleteItemFailure = data => {
-  $('#message').text('Error: could not delete item')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
-  $('form').trigger('reset')
+  $('.deleteMessage').text('Error: could not delete').fadeOut(2200, function () {
+    $(this).delay(2200).empty().show()
+  })
+
+  // $('.deleteMessage').removeClass()
+  // $('.deleteMessage').addClass('failure')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.deleteMessage').text(''), 2000))
+  // $('form').trigger('reset')
 }
 
 const populateUpdateForm = event => {
