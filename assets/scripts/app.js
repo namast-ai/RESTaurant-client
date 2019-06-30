@@ -36,4 +36,6 @@ $(() => {
     $('.menu-toggle > .fa-bars, .menu-toggle > .fa-times').toggleClass('fa-bars fa-times')
     $(this).toggleClass('active')
   })
+  // Scroll to top
+  itemEvents.scrollBar()
 })
