@@ -19,6 +19,9 @@ $(() => {
   $('#change-pw').on('submit', authEvents.onChangePassword)
 
   // item
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
   $('#create-item-form').on('submit', itemEvents.onNewItem)
   // $('#new').on('click', itemEvents.onDevNewItem)
   $('tbody').on('click', 'i.delete', itemEvents.onDeleteConfirm)
