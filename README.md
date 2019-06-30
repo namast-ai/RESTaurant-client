@@ -21,16 +21,16 @@ Frontend deployed: https://namast-ai.github.io/RESTaurant-client/
 Backend repo: https://github.com/namast-ai/RESTaurant-API
 Backend deployed: https://morning-hollows-81329.herokuapp.com/
 
-## Technologies Used:
+## Technologies Used
 - HTML
 - CSS
 - JavaScript
 - Handlebars
 
-## Wireframe:
+## Wireframe
 https://imgur.com/rlxie4C
 
-## User Stories:
+## User Stories
 - As an unregistered user, I would like to sign up with email and password.
 - As a registered user, I would like to sign in with email and password.
 - As a signed in user, I would like to change password.
@@ -41,10 +41,10 @@ https://imgur.com/rlxie4C
 - As a signed in user, I would like to see all items.
 - As a signed in user, I would like to see the quantity and price of each item.
 
-## Development process:
+## Development process
 This app was prepared in three business days, with some final touches added in the two days that followed. Our team worked together to create a vision for this project, including wireframes and an ERB. We created a GitHub profile, and used Git and ZenHub to organize and manage workflow. The actual coding of the project was a combination of individual efforts, pair programming, and mob programming. Our team implemented a series of 2-4 hour sprints to achieve specific goals. We checked in regularly, and met for modified versions of a scrum twice daily.
 
-## Unsolved Problems / Future Directions
+## Future Directions
 Future versions of this application could include:
 - a barcode generator or QR code generator
 - functionality to alert user by email when quantities reach user-defined threshold/limit

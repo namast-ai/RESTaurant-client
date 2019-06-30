@@ -94,6 +94,29 @@ const onDisplayAllItems = () => {
     .then(ui.onDisplayAllItemsSuccess)
     .catch(ui.onDisplayAllItemsFailure)
 }
+// Scroll to top function
+const scrollBar = () => {
+  $(document).ready(function () {
+    const checkPosition = function () {
+      if ($(this).scrollTop() > 60) {
+        $('.back-to-top').fadeIn()
+      } else {
+        $('.back-to-top').fadeOut()
+      }
+    }
+    // Show or hide the sticky footer button
+    $(window).scroll(checkPosition)
+    // scroll to 0px on click
+    $('.back-to-top').click(function (event) {
+      event.preventDefault()
+      $('body, html').animate({
+        scrollTop: 0
+      }, 300)
+    })
+    // Check position to hide on page load
+    checkPosition()
+  })
+}
 
 module.exports = {
   onNewItem,
@@ -104,5 +127,6 @@ module.exports = {
   toggleUpdateModal,
   onShowUpdate,
   onUpdateItem,
-  onDisplayAllItems
+  onDisplayAllItems,
+  scrollBar
 }
