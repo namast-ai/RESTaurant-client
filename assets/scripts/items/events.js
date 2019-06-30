@@ -39,10 +39,17 @@ const onFindItem = event => {
     .catch(ui.onFindItemFailure)
 }
 
-const onDeleteItem = event => {
+const onDeleteConfirm = event => {
   event.preventDefault()
   const id = $(event.target).data('id')
-  api.deleteItem(id)
+  store.delete = id
+  $('#deleteConfirm').modal('show')
+}
+
+const onDeleteItem = event => {
+  event.preventDefault()
+  // const id = $(event.target).data('id')
+  api.deleteItem(store.delete)
     .then(ui.onDeleteItemSuccess)
     .then(function () {
       onDisplayAllItems(event)
@@ -92,6 +99,7 @@ module.exports = {
   onNewItem,
   //  onDevNewItem,
   onFindItem,
+  onDeleteConfirm,
   onDeleteItem,
   toggleUpdateModal,
   onShowUpdate,

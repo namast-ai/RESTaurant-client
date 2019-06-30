@@ -21,10 +21,10 @@ $(() => {
   // item
   $('#create-item-form').on('submit', itemEvents.onNewItem)
   // $('#new').on('click', itemEvents.onDevNewItem)
-  $('tbody').on('click', 'i.delete', itemEvents.onDeleteItem)
+  $('tbody').on('click', 'i.delete', itemEvents.onDeleteConfirm)
   $('#findItem').on('submit', itemEvents.onFindItem)
   $('tbody').on('click', 'i.update', itemEvents.toggleUpdateModal)
-  $('.content').on('click', '.remove-item', itemEvents.onDeleteItem)
+  $('.remove-item').on('click', itemEvents.onDeleteItem)
   $('#get-item').on('submit', itemEvents.onGetItem)
   $('#update-item-form').on('submit', itemEvents.onUpdateItem)
   // $('.content').on('click', '.update-item', itemEvents.onShowUpdate)
