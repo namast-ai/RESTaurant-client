@@ -30,12 +30,12 @@ const onSignUpFailure = responseData => {
 
 const onSignInSuccess = responseData => {
   $('form').trigger('reset')
-  $('#message').show()
-  $('#message').text('Successfully signed in!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  // $('#message').show()
+  // $('#message').text('Successfully signed in!')
+  // $('#message').removeClass()
+  // $('#message').addClass('success')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('#landingSignedOut').addClass('d-none')
   $('#landingSignedIn').removeClass('d-none')
   // $('#signOut').show()
@@ -94,21 +94,21 @@ const onSignOutFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
-  $('.password-message').text('Successfully changed password').fadeOut(3000)
-  $('.password-message').show()
-  // $('.password-message').addClass('success')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
+  // $('.password-message').text('Successfully changed password').fadeOut(3000)
+  // $('.password-message').show()
+  // // $('.password-message').addClass('success')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
   $('form').trigger('reset')
 }
 
 const onChangePasswordFailure = () => {
-  $('.password-message').text('Error: could not change password').fadeOut(3000)
-  $('.password-message').show()
-  // $('.password-message').removeClass()
-  // $('.password-message').addClass('failure')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
+  // $('.password-message').text('Error: could not change password').fadeOut(3000)
+  // $('.password-message').show()
+  // // $('.password-message').removeClass()
+  // // $('.password-message').addClass('failure')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
   $('form').trigger('reset')
 }
 
