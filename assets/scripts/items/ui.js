@@ -40,10 +40,10 @@ const onFindItemFailure = data => {
 }
 
 const onDeleteItemSuccess = data => {
-  // $('.deleteMessage').text('Deleted item!').fadeOut(2200, function () {
-  //   $(this).delay(2200).empty().show()
-  // })
-  // setTimeout(() => $('#deleteConfirm').modal('hide'), 2210)
+  $('.deleteMessage').text('Deleted item!').fadeOut(2200, function () {
+    $(this).delay(2200).empty().show()
+  })
+  setTimeout(() => $('#deleteConfirm').modal('hide'), 2210)
   // $('.deleteMessage').removeClass()
   // $('.deleteMessage').addClass('success')
   // timeoutModule.overrideTimout()
@@ -52,9 +52,9 @@ const onDeleteItemSuccess = data => {
 }
 
 const onDeleteItemFailure = data => {
-  // $('.deleteMessage').text('Error: could not delete').fadeOut(2200, function () {
-  //   $(this).delay(2200).empty().show()
-  // })
+  $('.deleteMessage').text('Error: could not delete').fadeOut(2200, function () {
+    $(this).delay(2200).empty().show()
+  })
 
   // $('.deleteMessage').removeClass()
   // $('.deleteMessage').addClass('failure')
@@ -85,7 +85,6 @@ const onUpdateItemFailure = data => {
 const onDisplayAllItemsSuccess = (data) => {
   const showItemsHtml = showItemsTemplate({ items: data.items })
   $('tbody').html(showItemsHtml)
-  console.log(data)
   // if (data.items.length === 0) {
   //   $('#message').text('No items to display. Press new item to create an item!')
   //   timeoutModule.overrideTimout()
