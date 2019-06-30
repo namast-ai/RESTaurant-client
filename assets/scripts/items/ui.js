@@ -10,6 +10,29 @@ const onNewItemSuccess = data => {
   // $('#message').addClass('success')
   // timeoutModule.overrideTimout()
   // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  (async () => {
+    const randNumMessage = Math.floor(Math.random() * 1000000)
+    const randNumHeading = Math.floor(Math.random() * 1000000)
+    await $('.wrapper-messages').append(
+      `<div id="${randNumMessage}" class="alert message-success alert-dismissible d-none fade col-5" role="alert">
+        <div class="alert-heading">
+          <h4 id="${randNumHeading}"></h4>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>`
+    )
+
+    await $(`#${randNumMessage}`).addClass('show')
+    await $(`#${randNumHeading}`).html('')
+    await $(`#${randNumHeading}`).text('Added new item')
+    await $(`#${randNumMessage}`).removeClass('d-none')
+    await setTimeout(() => {
+      $(`#${randNumMessage}`).alert('close')
+      $(`#${randNumMessage}`).addClass('d-none')
+    }, 2000)
+  })()
   $('form').trigger('reset')
 }
 
@@ -20,10 +43,20 @@ const onNewItemFailure = data => {
   // timeoutModule.overrideTimout()
   // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
+  $('#message-failure').addClass('show')
+  $('#heading-failure').html('')
+  $('#heading-failure').text('Failed to add new item')
+  $('#message-failure').removeClass('d-none')
+  setTimeout(() => {
+    $('#message-failure').alert('close')
+    $('#message-failure').addClass('d-none')
+  }, 2000)
 }
 
 const onFindItemSuccess = data => {
-  const showItemsHtml = showItemsTemplate({ items: data.items })
+  const showItemsHtml = showItemsTemplate({
+    items: data.items
+  })
   $('tbody').html(showItemsHtml)
   // $('#message').text('Item(s) found!')
   // timeoutModule.overrideTimout()
@@ -70,20 +103,53 @@ const populateUpdateForm = event => {
 }
 
 const onUpdateItemSuccess = (playerTurn, cell) => {
-  $('#message').text('Successfully updated item!')
+  // $('#message').text('Successfully updated item!')
   // timeoutModule.overrideTimout()
   // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  (async () => {
+    const randNumMessage = Math.floor(Math.random() * 1000000)
+    const randNumHeading = Math.floor(Math.random() * 1000000)
+    await $('.wrapper-messages').append(
+      `<div id="${randNumMessage}" class="alert message-success alert-dismissible d-none fade col-5" role="alert">
+        <div class="alert-heading">
+          <h4 id="${randNumHeading}"></h4>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>`
+    )
+
+    await $(`#${randNumMessage}`).addClass('show')
+    await $(`#${randNumHeading}`).html('')
+    await $(`#${randNumHeading}`).text('Updated item')
+    await $(`#${randNumMessage}`).removeClass('d-none')
+    await setTimeout(() => {
+      $(`#${randNumMessage}`).alert('close')
+      $(`#${randNumMessage}`).addClass('d-none')
+    }, 2000)
+  })()
   $('form').trigger('reset')
 }
 
 const onUpdateItemFailure = data => {
-  $('#message').text('Error: could not update item')
+  // $('#message').text('Error: could not update item')
   // timeoutModule.overrideTimout()
   // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
+  $('#message-failure').addClass('show')
+  $('#heading-failure').html('')
+  $('#heading-failure').text('Failed to add new item')
+  $('#message-failure').removeClass('d-none')
+  setTimeout(() => {
+    $('#message-failure').alert('close')
+    $('#message-failure').addClass('d-none')
+  }, 2000)
 }
 const onDisplayAllItemsSuccess = (data) => {
-  const showItemsHtml = showItemsTemplate({ items: data.items })
+  const showItemsHtml = showItemsTemplate({
+    items: data.items
+  })
   $('tbody').html(showItemsHtml)
   // if (data.items.length === 0) {
   //   $('#message').text('No items to display. Press new item to create an item!')
