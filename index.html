@@ -19,6 +19,7 @@
 
 <body>
   <main>
+    <!-- Modal New Item-->
     <div class="modal fade" id="create-new-trailer" tabindex="-1" role="dialog" aria-labelledby="create-update-trailer-label" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -56,6 +57,7 @@
         </div>
       </div>
     </div>
+    <!-- Modal Update Item -->
     <div class="modal fade" id="update-trailer" tabindex="-1" role="dialog" aria-labelledby="update-trailer-label" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -93,161 +95,162 @@
         </div>
       </div>
     </div>
-      <section class="" id="landingSignedOut">
-        <div class="container login-container">
-          <div class="row">
-            <div class="col-md-6 login-form-1">
-              <h3>Sign In</h3>
-              <form id="sign-in">
-                <div class="form-group">
-                  <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="submit" class="btnSubmit" value="Sign In" />
-                </div>
-              </form>
-              <h3 id="signInFailure" class="invisible">Sign In Failed</h3>
-            </div>
-            <div class="col-md-6 login-form-2">
-              <h3>Sign Up</h3>
-              <form id="sign-up">
-                <div class="form-group">
-                  <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="submit" class="btnSubmit" value="Sign Up" />
-                </div>
-              </form>
-              <!-- Do we need to differentiate actual sign up failure from AutoSignIn failure?-->
-              <h3 id="signUpFailure" class="invisible">Sign Up Failed</h3>
-            </div>
+    <!-- Modal Delete Item Confirmation Catch -->
+    <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteItem">DELETE</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
           </div>
-        </div>
-      </section>
-      <section id="landingSignedIn" class="d-none">
-        <a class="menu-toggle rounded" href="#">
-          <i class="fas fa-bars"></i>
-        </a>
-         <div class="modal fade" id="change-pw" tabindex="-1" role="dialog" aria-hidden="true">
-           <div class="modal-dialog" role="document">
-             <div class="modal-content">
-               <div class="modal-header text-center">
-                 <h3 class="modal-title w-100 font-weight-bold">Change Password</h3>
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body mx-3">
-                  <div class="md-form mb-5">
-                      <div class="form-group">
-                        <form id="change-password">
-                          <div class="form-group">
-                            <h5>Enter current password:</h5>
-                            <input class="form-control-lg" name="passwords[old]" placeholder="Current password" type="password" required />
-                          </div>
-                          <div class="form-group">
-                            <h5>Enter new password:</h5>
-                            <input class="form-control-lg" name="passwords[new]" placeholder="New password" type="password" required />
-                              <span id="change-pw-message"></span>
-                          </div>
-                          <div class="modal-footer d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Change Password</button>
-                          </div>
-                        </form>
-                        <p class="password-message"></p>
-                       </div>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <nav id="sidebar-wrapper">
-          <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-            <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-            </li>
-            <li class="sidebar-nav-item">
-              <a class="js-scroll-trigger" href="#page-top">Home</a>
-            </li>
-            <li class="sidebar-nav-item">
-              <a class="js-scroll-trigger" href="#about">About</a>
-            </li>
-            <li class="sidebar-nav-item">
-              <a class="js-scroll-trigger" href="#services">Services</a>
-            </li>
-            <li class="sidebar-nav-item">
-              <a data-toggle="modal" href="#change-pw">Change Password</a>
-              <!-- <a class="js-scroll-trigger change-pw" href="#">Change Password</a> -->
-            </li>
-            <li class="sidebar-nav-item">
-              <a id="sign-out" class="js-scroll-trigger sign-out" href="#contact">Sign Out</a>
-            </li>
-          </ul>
-        </nav>
-        <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand" href="#">Company Name</a>
-        </nav>
-        <nav class="navbar navbar-light bg-light d-flex justify-content-end sticky-top">
-          <form id="findItem" class="form-inline my-2 my-lg-0">
-            <input name="item[name]" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn my-2 my-sm-0" type="submit">
-              <i class="fas fa-search mr-2 fa-2x"></i>
-              </button>
-          </form>
-        </nav>
-        <table class="table table-striped">
-          <thead class="position-sticky">
-            <tr>
-              <th scope="col">Product ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Quanity</th>
-              <th scope="col">Price</th>
-              <th scope="col">Reorder Status</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-          <i class="fas fa-angle-up"></i>
-        </a>
-        <nav class="navbar navbar-light bg-light fixed-bottom d-flex justify-content-center">
-          <a class="" href="#">
-            <i id="createItem" class="fas fa-plus fa-2x text-dark" data-toggle="modal" data-target="#create-new-trailer"></i>
-          </a>
-        </nav>
-      </section>
-
-      <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="deleteItem">DELETE</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-            </div>
-            <div class="modal-body"> Are you sure you want to delete this entry? </div>
-            <div class="modal-footer">
-              <p class="deleteMessage">
-              <br>
-              <p>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-              <button type="button" class="btn btn-danger remove-item">YES</button>
-            </div>
+          <div class="modal-body"> Are you sure you want to delete this entry? </div>
+          <div class="modal-footer">
+            <p class="deleteMessage">
+            <br>
+            <p>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+            <button type="button" class="btn btn-danger remove-item">YES</button>
           </div>
         </div>
       </div>
-
+    </div>
+    <section class="" id="landingSignedOut">
+      <div class="container login-container">
+        <div class="row">
+          <div class="col-md-6 login-form-1">
+            <h3>Sign In</h3>
+            <form id="sign-in">
+              <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password" value="" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Sign In" />
+              </div>
+            </form>
+            <h3 id="signInFailure" class="invisible">Sign In Failed</h3>
+          </div>
+          <div class="col-md-6 login-form-2">
+            <h3>Sign Up</h3>
+            <form id="sign-up">
+              <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Your Password" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password" value="" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Sign Up" />
+              </div>
+            </form>
+            <!-- Do we need to differentiate actual sign up failure from AutoSignIn failure?-->
+            <h3 id="signUpFailure" class="invisible">Sign Up Failed</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="landingSignedIn" class="d-none">
+      <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+       <div class="modal fade" id="change-pw" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header text-center">
+               <h3 class="modal-title w-100 font-weight-bold">Change Password</h3>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <div class="form-group">
+                      <form id="change-password">
+                        <div class="form-group">
+                          <h5>Enter current password:</h5>
+                          <input class="form-control-lg" name="passwords[old]" placeholder="Current password" type="password" required />
+                        </div>
+                        <div class="form-group">
+                          <h5>Enter new password:</h5>
+                          <input class="form-control-lg" name="passwords[new]" placeholder="New password" type="password" required />
+                            <span id="change-pw-message"></span>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                          <button type="submit" class="btn btn-primary btn-lg">Change Password</button>
+                        </div>
+                      </form>
+                      <p class="password-message"></p>
+                     </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#page-top">Home</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a data-toggle="modal" href="#change-pw">Change Password</a>
+            <!-- <a class="js-scroll-trigger change-pw" href="#">Change Password</a> -->
+          </li>
+          <li class="sidebar-nav-item">
+            <a id="sign-out" class="js-scroll-trigger sign-out" href="#contact">Sign Out</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Company Name</a>
+      </nav>
+      <nav class="navbar navbar-light bg-light d-flex justify-content-end sticky-top">
+        <form id="findItem" class="form-inline my-2 my-lg-0">
+          <input name="item[name]" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn my-2 my-sm-0" type="submit">
+            <i class="fas fa-search mr-2 fa-2x"></i>
+          </button>
+        </form>
+      </nav>
+      <table class="table table-striped mb-md-5">
+        <thead class="position-sticky">
+          <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quanity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Reorder Status</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- item-listing handlebar injected here -->
+        </tbody>
+      </table>
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+      <nav class="navbar navbar-light bg-light fixed-bottom d-flex justify-content-center">
+        <a class="" href="#">
+          <i id="createItem" class="fas fa-plus fa-2x text-dark" data-toggle="modal" data-target="#create-new-trailer"></i>
+        </a>
+      </nav>
+    </section>
     <h3 id="message"></h3>
   </main>
 </body>
