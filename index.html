@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                   <label for="updateItemThreshold">Threshold</label>
-                  <input name="item[limit]" type="number" class="form-control" min="0" id="updateItemThreshold" aria-describedby="emailHelp" placeholder="Threshold">
+                  <input name="item[limit]" type="number" class="form-control" min="0" id="updateItemThreshold" aria-describedby="emailHelp" placeholder="Threshold" data-toggle="tooltip" data-placement="top" title="Threshold is the quanitity at which reorder status becomes urgent. When quantity reaches  times the threshold amount, reorder status will turn yellow - indicating it is time to reorder. When the quantity reaches the threshold amount, reorder status will turn red for that item - indicating reorder urgency.">
                 </div>
                 <hr class="my-2">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="form-group">
                   <label for="createItemThreshold">Threshold</label>
-                  <input name="item[limit]" type="number" class="form-control" min="0" id="createItemThreshold" aria-describedby="emailHelp" placeholder="Threshold" data-toggle="tooltip" data-placement="top" title="Threshold is the quanitity at which reorder status becomes urgent. When quantity reaches 1.5 times the threshold amount, reorder status will turn yellow - indicating it is time to reorder. When the quantity reaches the threshold amount, reorder status will turn red for that item - indicating reorder urgency. ">
+                  <input name="item[limit]" type="number" class="form-control" min="0" id="createItemThreshold" aria-describedby="emailHelp" placeholder="Threshold" data-toggle="tooltip" data-placement="top" title="Threshold is the quanitity at which reorder status becomes urgent. When quantity reaches 150% of the threshold amount, reorder status will turn yellow - indicating it is time to reorder. When the quantity reaches the threshold amount, reorder status will turn red for that item - indicating reorder urgency. ">
                 </div>
                 <hr class="my-2">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -192,6 +192,73 @@
         </div>
 
       </div>
+
+<!-- Instructions modal for sidebar -->
+<div class="modal fade" id="instructions" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="instructionsSidebar">Instructions</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <h3>Create a new item</h3>
+        <p>Click on the "+" button at the bottom of the main page, then complete the form by adding name, quantity, price, and threshold of the item.</p>
+        <p>Threshold is the quanitity at which reorder status becomes urgent. When quantity reaches 1.5 times the threshold amount, reorder status will turn yellow - indicating it is time to reorder. When the quantity reaches the threshold amount, reorder status will turn red for that item - indicating reorder urgency.</p>
+        <br>
+        <h3>Update an item</h3>
+        <p>Click on the pencil icon to the right of the item you want to edit, and fill out the entire form. All fields must be full for the form to submit.
+        <br>
+        <h3>Delete an item</h3>
+        <p>Click on the trash can icon to the right of the item you want to delete, and then confirm that you want to delete it.</p>
+        <br>
+        <h3>Search for an item</h3>
+        <p>Enter all or part of the item name in the search bar at the top of the page then click on the maginfying glass icon.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- "About us" modal for sidebar -->
+<div class="modal fade" id="about" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="aboutSidebar">About</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <p>This application was developed my Namast.ai. For technical information about this app or to contact us with comments, questions, or program bugs, you can find us on <a href="https://github.com/namast-ai">GitHub</a>.</p>
+        <br>
+        <p>To learn more about our talented team of developers (listed alphabetically), you can find us on LinkedIn:</p>
+        <h5>
+          <a href="https://www.linkedin.com/in/apcaplan/">Adam Caplan</a>
+        </h5>
+        <br>
+        <h5>
+          <a href="https://www.linkedin.com/in/its-jeremy-denton/">Jeremy Denton</a>
+        </h5>
+        <br>
+        <h5>
+          <a href="https://www.linkedin.com/in/merritt-blanks/">Merritt Blanks</a>
+        </h5>
+        <br>
+        <h5>
+          <a href="https://www.linkedin.com/in/oliversablove/">Oliver Sablove</a>
+        </h5>
+        <br>
+        <p>We hope you enjoy using this app! Let us know if we can help you customize it for your company's needs, or otherwise help out with your next project!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
           <!-- <li class="sidebar-brand"> -->
@@ -204,16 +271,15 @@
           </li>
           <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="#page-top">Home</a>
+          </li>-->
+          <li class="sidebar-nav-item">
+            <a data-toggle="modal" href="#about">About</a>
           </li>
           <li class="sidebar-nav-item">
-            <a class="js-scroll-trigger" href="#about">About</a>
-          </li> -->
-          <!-- <li class="sidebar-nav-item">
-            <a class="js-scroll-trigger" href="#services">Services</a>
-          </li>-->
+            <a data-toggle="modal" href="#instructions">Instructions</a>
+          </li>
          <li class="sidebar-nav-item">
             <a data-toggle="modal" href="#change-pw">Change Password</a>
-          <!-- <a class="js-scroll-trigger change-pw" href="#">Change Password</a> -->
           </li>
           <li class="sidebar-nav-item">
             <a id="sign-out" class="js-scroll-trigger sign-out" href="#contact">Sign Out</a>

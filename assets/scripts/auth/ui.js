@@ -6,21 +6,21 @@ const store = require('../store')
 
 const onSignUpSuccess = responseData => {
   store.signUpPassed = true
-  // $('#message').show()
-  // $('#message').text('Successfully created an account!')
+  $('#message').show()
+  $('#message').text('Successfully created an account!')
   // $('#message').removeClass()
   // $('#message').addClass('success')
-  // timeoutModule.overrideTimout()
-  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  timeoutModule.overrideTimout()
+  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
   return responseData
 }
 
 const onSignUpFailure = responseData => {
-  $('#signUpFailure').removeClass('invisible')
-  setTimeout(() => $('#signUpFailure').addClass('invisible'), 3000)
-  // $('#message').show()
-  // $('#message').text('Error: could not create account')
+  // $('#signUpFailure').removeClass('invisible')
+  // setTimeout(() => $('#signUpFailure').addClass('invisible'), 3000)
+  $('#message').show()
+  $('#message').text('Error: could not create account').fadeOut(3000)
   // $('#message').removeClass()
   // $('#message').addClass('failure')
   // timeoutModule.overrideTimout()
@@ -45,7 +45,7 @@ const onSignInSuccess = responseData => {
   // $('#signUp').hide()
   // $('#signIn').hide()
   // $('#newItem').show()
-  // $('#displayAllItems').show()
+  $('#displayAllItems').show()
 
   store.user = responseData.user
 }
@@ -85,17 +85,18 @@ const onSignOutSuccess = () => {
 }
 
 const onSignOutFailure = () => {
-  $('#message').text('Error: failed to sign out')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  $('#message').text('Error: failed to sign out').fadeOut(3000)
+  $('.password-message').show()
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
+  // timeoutModule.overrideTimout()
+  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
 }
 
 const onChangePasswordSuccess = () => {
-  // $('.password-message').text('Successfully changed password').fadeOut(3000)
-  // $('.password-message').show()
+  $('.password-message').text('Successfully changed password').fadeOut(3000)
+  $('.password-message').show()
   // // $('.password-message').addClass('success')
   // timeoutModule.overrideTimout()
   // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('.password-message').text(''), 2000))
@@ -103,8 +104,8 @@ const onChangePasswordSuccess = () => {
 }
 
 const onChangePasswordFailure = () => {
-  // $('.password-message').text('Error: could not change password').fadeOut(3000)
-  // $('.password-message').show()
+  $('.password-message').text('Error: could not change password').fadeOut(3000)
+  $('.password-message').show()
   // // $('.password-message').removeClass()
   // // $('.password-message').addClass('failure')
   // timeoutModule.overrideTimout()

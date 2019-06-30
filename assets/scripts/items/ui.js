@@ -70,14 +70,14 @@ const populateUpdateForm = event => {
 }
 
 const onUpdateItemSuccess = (playerTurn, cell) => {
-  // $('#message').text('Successfully updated item!')
+  $('#message').text('Successfully updated item!')
   // timeoutModule.overrideTimout()
   // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
 }
 
 const onUpdateItemFailure = data => {
-  // $('#message').text('Error: could not update item')
+  $('#message').text('Error: could not update item')
   // timeoutModule.overrideTimout()
   // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
