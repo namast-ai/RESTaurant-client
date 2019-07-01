@@ -55,13 +55,22 @@ const onNewItemFailure = data => {
 
 const onFindItemSuccess = data => {
   $('form').trigger('reset')
-  const showItemsHtml = showItemsTemplate({
-    items: data.items
-  })
-  $('tbody').html(showItemsHtml)
-  // $('#message').text('Item(s) found!')
-  // timeoutModule.overrideTimout()
-  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
+  if (data.items.length === 0) {
+    $('tbody').html(
+      `<th scope="col"></th>
+       <th scope="col"></th>
+       <th scope="col"></th>
+       <th scope="col">0 items found.</th>
+       <th scope="col"></th>
+       <th scope="col"></th>
+       <th scope="col"></th>`
+    )
+  } else {
+    const showItemsHtml = showItemsTemplate({
+      items: data.items
+    })
+    $('tbody').html(showItemsHtml)
+  }
 }
 
 const onFindItemFailure = data => {
