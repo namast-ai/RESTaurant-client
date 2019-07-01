@@ -11,6 +11,7 @@ const onSignUp = event => {
 
   const form = event.target
   const formData = getFormFields(form)
+  $('#companyName').text(`${formData.credentials.company}`)
 
   api.signUp(formData)
     .then((data) => {
