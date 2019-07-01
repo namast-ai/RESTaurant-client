@@ -1,5 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
 
+.wrapper-messages {
+  pointer-events: none;
+}
+
+.message-success {
+  background-color: rgba(92,184,92, 0.85);
+  color: rgb(2,34,2);
+  pointer-events: auto;
+}
+
+.message-failed {
+  background-color: rgba(217, 83, 79, 0.85);
+  color: rgb(97, 3, 0);
+  pointer-events: auto;
+}
+
 .deleteMessage {
   font-size: 18px;
   justify-content: flex-start;
