@@ -156,13 +156,13 @@
              <p>Threshold is the quanitity at which reorder status becomes urgent. When quantity reaches 1.5 times the threshold amount, reorder status will turn yellow - indicating it is time to reorder. When the quantity reaches the threshold amount, reorder status will turn red for that item - indicating reorder urgency.</p>
              <br>
              <h3>Update an item</h3>
-             <p>Click on the pencil icon to the right of the item you want to edit, and fill out the entire form. All fields must be full for the form to submit.
+             <p>Click on the pencil icon to the right of the item you want to edit. Enter the information you want to update, then click submit.
              <br>
              <h3>Delete an item</h3>
              <p>Click on the trash can icon to the right of the item you want to delete, and then confirm that you want to delete it.</p>
              <br>
              <h3>Search for an item</h3>
-             <p>Enter all or part of the item name in the search bar at the top of the page then click on the maginfying glass icon.</p>
+             <p>Enter all or part of the item name in the search bar at the top of the page then click on the maginfying glass icon. To see all items, delete anything you may have typed into the search bar (so it is empty) then click on the maginfying glass icon. </p>
            </div>
            <div class="modal-footer">
              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -314,10 +314,12 @@
               <th scope="col">Delete</th>
             </tr>
           </thead>
+
           <tbody>
             <!-- item-listing handlebar injected here -->
           </tbody>
         </table>
+        <h4 class="search-error"></h4>
         <!-- Scroll to Top Button Points to company name nav-->
         <a class="scroll-to-top rounded js-scroll-trigger back-to-top" href="#company-branded-nav" data-toggle="tooltip" data-placement="top" title="Scroll to top">
           <i class="fas fa-angle-up"></i>
