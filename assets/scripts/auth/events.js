@@ -14,9 +14,6 @@ const onSignUp = event => {
   $('#companyName').text(`${formData.credentials.company}`)
 
   api.signUp(formData)
-    .then((data) => {
-      return data
-    })
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
     .then(() => {
