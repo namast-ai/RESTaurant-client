@@ -50,3 +50,8 @@ Future versions of this application could include:
 - functionality to alert user by email when quantities reach user-defined threshold/limit
 - an option to add multiple restaurant locations, and to sort and search by location
 - login and authentication for different user types (eg. owner, manager, inventory associate), and options to restrict functionality by user type
+
+
+
+
+.
