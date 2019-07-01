@@ -23,22 +23,10 @@ const onSignUpFailure = responseData => {
 
 const onSignInSuccess = responseData => {
   $('form').trigger('reset')
-  // $('#message').show()
-  // $('#message').text('Successfully signed in!')
-  // $('#message').removeClass()
-  // $('#message').addClass('success')
-  // timeoutModule.overrideTimout()
-  // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('#landingSignedOut').addClass('d-none')
   $('#landingSignedIn').removeClass('d-none')
-  // $('#signOut').show()
-  // $('#changePW').show()
-  // $('#Item').show()
-  // $('#displayAllItems').show()
-  // $('#signUp').hide()
-  // $('#signIn').hide()
-  // $('#newItem').show()
   $('#displayAllItems').show()
+  $('#companyName').text(`${responseData.user.company}`)
 
   store.user = responseData.user
 }

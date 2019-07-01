@@ -68,11 +68,8 @@ const onAutoSignIn = (email, password) => {
     }
   }
   api.signIn(reqObj)
-    .then(responseData => {
-      store.user = responseData.user
-      ui.onSignInSuccess()
-    })
-    // .catch(ui.onSignInFailure)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInFailure)
 }
 
 module.exports = {
