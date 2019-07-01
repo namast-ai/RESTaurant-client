@@ -7,7 +7,6 @@ const store = require('../store')
 const onSignUpSuccess = responseData => {
   store.signUpPassed = true
   $('form').trigger('reset')
-  // return responseData
 }
 
 const onSignUpFailure = responseData => {

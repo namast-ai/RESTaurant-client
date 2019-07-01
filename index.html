@@ -230,6 +230,9 @@
               <h3>Sign Up</h3>
               <form id="sign-up">
                 <div class="form-group">
+                  <input type="text" name="credentials[company]" class="form-control" placeholder="Company Name" value="" />
+                </div>
+                <div class="form-group">
                   <input type="email" name="credentials[email]" class="form-control" placeholder="Your Email" value="" />
                 </div>
                 <div class="form-group">
@@ -287,13 +290,15 @@
           </ul>
         </nav>
         <nav class="navbar navbar-light bg-light" id="company-branded-nav">
-          <a class="navbar-brand" href="#">Company Name</a>
+          <a id="companyName" class="navbar-brand" href="#">
+            <!-- Compnay Name go here -->
+          </a>
         </nav>
-        <nav class="navbar navbar-light bg-light d-flex justify-content-end sticky-top">
+        <nav class="navbar navbar-light bg-dark d-flex justify-content-end sticky-top">
           <form id="findItem" class="form-inline my-2 my-lg-0">
             <input name="item[name]" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn my-2 my-sm-0" type="submit">
-              <i class="fas fa-search mr-2 fa-2x"></i>
+            <button class="btn btn-outline-light" type="submit">
+              <i class="fas fa-search"></i>
             </button>
           </form>
         </nav>

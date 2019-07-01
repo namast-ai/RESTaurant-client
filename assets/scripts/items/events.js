@@ -33,7 +33,9 @@ const onFindItem = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-
+  if (!formData.item.name) {
+    formData.item.name = 'emPty SeArcH fiEld'
+  }
   api.findItem(formData)
     .then(ui.onFindItemSuccess)
     .catch(ui.onFindItemFailure)
