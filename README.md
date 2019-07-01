@@ -10,11 +10,11 @@ To sign out: click on the dropdown menu in the upper left corner of the main scr
 
 To create a new item: click on the "+" button at the bottom of the main page, and complete the form by adding name, quantity, price, and threshold of the item. Threshold is the amount at which item quantity reaches danger level. Any quantity at or below the danger level is represented by a red reorder status; warning zone (between threshold and 150% of threshold) is represented by a yellow reorder status; quantities above 150% of threshold hav a green reorder status.
 
-To update an item: click on the pencil icon to the right of the item you want to edit, and fill out the entire form.
+To update an item: click on the pencil icon to the right of the item you want to edit. Enter the information you want to update, then click submit.
 
 To delete an item: click on the trash can icon to the right of the item you want to delete, and then confirm that you want to delete it.
 
-To search for an item: enter all or part of the item name in the search bar at the top of the page then click on the maginfying glass icon.
+To search for an item: enter all or part of the item name in the search bar at the top of the page then click on the maginfying glass icon. To see all items, delete anything you may have typed into the search bar (so it is empty) then click on the maginfying glass icon.
 
 ## Relevant Links
 Frontend deployed: https://namast-ai.github.io/RESTaurant-client/
