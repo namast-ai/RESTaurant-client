@@ -6,21 +6,15 @@ const store = require('../store')
 
 const onSignUpSuccess = responseData => {
   store.signUpPassed = true
-  $('#message').show()
-  $('#message').text('Successfully created an account!')
-  // $('#message').removeClass()
-  // $('#message').addClass('success')
-  timeoutModule.overrideTimout()
-  timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
   $('form').trigger('reset')
-  return responseData
+  // return responseData
 }
 
 const onSignUpFailure = responseData => {
   // $('#signUpFailure').removeClass('invisible')
   // setTimeout(() => $('#signUpFailure').addClass('invisible'), 3000)
-  $('#message').show()
-  $('#message').text('Error: could not create account').fadeOut(3000)
+  $('#signUpFailure').removeClass('invisible')
+  setTimeout(() => $('#signInFailure').addClass('invisible'), 3000)
   // $('#message').removeClass()
   // $('#message').addClass('failure')
   // timeoutModule.overrideTimout()
@@ -73,6 +67,16 @@ const onSignOutSuccess = () => {
   $('form').trigger('reset')
   $('#landingSignedOut').removeClass('d-none')
   $('#landingSignedIn').addClass('d-none')
+  $('tbody').html(
+    `            <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">No items to show</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>`
+  )
+  store.signUpPassed = false
   // $('#signOut').hide()
   // $('#changePW').hide()
   // $('#newItem').hide()
