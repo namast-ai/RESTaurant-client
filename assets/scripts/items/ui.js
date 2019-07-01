@@ -54,6 +54,7 @@ const onNewItemFailure = data => {
 }
 
 const onFindItemSuccess = data => {
+  $('form').trigger('reset')
   const showItemsHtml = showItemsTemplate({
     items: data.items
   })
@@ -61,7 +62,6 @@ const onFindItemSuccess = data => {
   // $('#message').text('Item(s) found!')
   // timeoutModule.overrideTimout()
   // timeoutModule.pushToTimeoutQueue(setTimeout(() => $('#message').text(''), 2000))
-  $('form').trigger('reset')
 }
 
 const onFindItemFailure = data => {
